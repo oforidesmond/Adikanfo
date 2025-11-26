@@ -96,7 +96,7 @@ export function Header() {
 
           {/* Mobile menu button */}
           <motion.button
-            className="md:hidden"
+            className="md:hidden cursor-pointer"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >

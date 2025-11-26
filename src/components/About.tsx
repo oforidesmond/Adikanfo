@@ -33,9 +33,9 @@ export function About() {
       description: 'Adikanfo Commodities was established with a vision to transform cocoa trading in Ghana.',
     },
     {
-      year: '2015',
-      title: 'COCOBOD License',
-      description: 'Received official licensing from Ghana Cocoa Board, marking a major milestone.',
+      year: '2016',
+      title: 'Operational License',
+      description: 'Obtained operational license to purchase cocoa in Ghana on October 6, 2016, under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)), marking a major milestone.',
     },
     {
       year: '2018',
@@ -97,7 +97,12 @@ export function About() {
             alt="Ghana landscape"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80"
+          style={{
+            background: 'linear-gradient(to right, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%),linear-gradient(to left, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%)',
+            backdropFilter: 'blur(1px)',
+          }}
+          ></div>
         </motion.div>
 
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
@@ -159,7 +164,7 @@ export function About() {
                 fair, and efficient cocoa buying system that benefits both farmers and the industry at large.
               </p>
               <p className="text-gray-600 mb-4 text-lg leading-relaxed">
-                As a fully licensed buying company under the Ghana Cocoa Board (COCOBOD), we have built a 
+                As a fully licensed buying company, we have built a 
                 reputation for integrity, reliability, and excellence. Our name "Adikanfo" reflects our 
                 commitment to being pioneers in ethical cocoa trading.
               </p>
@@ -208,9 +213,7 @@ export function About() {
               </div>
               <h2 className="text-3xl mb-4 text-blue-900">Our Mission</h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                To empower Ghanaian cocoa farmers through fair pricing, reliable service, and comprehensive 
-                support while delivering premium quality cocoa to international markets. We strive to create 
-                sustainable value throughout the entire cocoa supply chain.
+                Our primary mission is to purchase quality cocoa beans from the farmers and evacuate same to Ghana Cocoa Board (COCOBOD) and pay adequate compensation to the farmers
               </p>
             </motion.div>
 
@@ -227,9 +230,7 @@ export function About() {
               </div>
               <h2 className="text-3xl mb-4">Our Vision</h2>
               <p className="text-blue-100 text-lg leading-relaxed">
-                To be West Africa's most trusted and innovative cocoa buying company, recognized for our 
-                commitment to farmer prosperity, quality excellence, and sustainable practices that transform 
-                communities and set new industry standards.
+                Our vision is to be the  most  efficient and profitable licenced cocoa buying company in Ghana
               </p>
             </motion.div>
           </div>
@@ -344,7 +345,7 @@ export function About() {
           >
             <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Our Team</h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Dedicated professionals committed to excellence
+              Adikanfo Commodities Limited has resourceful and dynamic management team which is committed to the realization of the vision and mission of the company. They have rich experiences in the cocoa industry
             </p>
           </motion.div>
 
@@ -387,7 +388,7 @@ export function About() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: 'COCOBOD Licensed', desc: 'Official Ghana Cocoa Board License' },
+              { title: 'COCOBOD Licensed', desc: 'Officially licensed under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6))' },
               { title: 'Quality Certified', desc: 'International Quality Standards' },
               { title: 'Fair Trade', desc: 'Committed to Fair Trade Practices' },
             ].map((cert, index) => (

@@ -48,13 +48,13 @@ export function Contact() {
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['Accra, Ghana', 'Greater Accra Region'],
+      details: ['Dr. Tagoe Lane GA -375-9289 East Legon', 'Greater Accra'],
       color: 'from-blue-500 to-blue-700',
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+233 (0) 24 123 4567', '+233 (0) 30 234 5678'],
+      details: ['+233 (0) 307 010 132', '+233 (0) 302 556 680'],
       color: 'from-cyan-500 to-cyan-700',
     },
     {
@@ -366,7 +366,7 @@ export function Contact() {
                   className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl text-center"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <p className="text-3xl text-blue-700 mb-2">+233 (0) 24 123 4567</p>
+                  <p className="text-3xl text-blue-700 mb-2">+233 (0) 307 010 132</p>
                   <p className="text-sm text-blue-600">Available Monday - Saturday</p>
                 </motion.div>
               </motion.div>

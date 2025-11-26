@@ -15,9 +15,13 @@ export function Footer() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white">AC</span>
-              </div>
+              <motion.img
+                src="/index.png"
+                alt="Adikanfo Commodities logo"
+                className="w-10 h-10 rounded-lg object-contain shadow-lg"
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+              />
               <span className="text-white">Adikanfo Commodities</span>
             </div>
             <p className="text-sm">
@@ -84,11 +88,14 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="mt-1 flex-shrink-0" />
-                <span>Accra, Ghana</span>
+                <span>Dr. Tagoe Lane GA -375-9289 East Legon
+                  <br />
+                  P.O. Box MP 4655 Mamprobi- Accra
+                </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} />
-                <span>+233 (0) 24 123 4567</span>
+                <span>+233 (0) 307 010 132</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} />

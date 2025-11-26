@@ -25,7 +25,7 @@ export function Home() {
     if (!carouselApi) return;
     const interval = setInterval(() => {
       carouselApi.scrollNext();
-    }, 5000);
+    }, 7000);
     return () => clearInterval(interval);
   }, [carouselApi]);
 
@@ -33,7 +33,7 @@ export function Home() {
     {
       icon: Shield,
       title: 'COCOBOD Licensed',
-      description: 'Officially licensed by the Ghana Cocoa Board with full regulatory compliance',
+      description: 'Officially licensed under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)) with full regulatory compliance and a registered member of WORLD COCOA FOUNDATION (WCF) and LICENSED COCOA BUYERS ASSOCIATION OF GHANA (LICOBAG)',
     },
     {
       icon: Users,
@@ -93,19 +93,25 @@ export function Home() {
           transition={{ duration: 1.2 }}
         >
           <Carousel className="h-full" opts={{ loop: true }} setApi={setCarouselApi}>
-            <CarouselContent className="h-full">
+            <CarouselContent className="h-full" style={{ marginLeft: 0 }}>
               {heroImages.map((image) => (
-                <CarouselItem key={image.src} className="p-0 h-[700px]">
+                <CarouselItem key={image.src} className="p-0 h-[700px]" style={{ paddingLeft: 0 }}>
                   <div className="h-full">
                     <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex bg-white/50 text-blue-900 border-white/80 hover:bg-white/80" />
-            <CarouselNext className="hidden md:flex bg-white/50 text-blue-900 border-white/80 hover:bg-white/80" />
+            <CarouselPrevious className="hidden md:flex bg-white/50 text-blue-900 hover:bg-white/80" />
+            <CarouselNext className="hidden md:flex bg-white/50 text-blue-900 hover:bg-white/80" />
           </Carousel>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-transparent"></div>
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%),linear-gradient(to left, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%)',
+              backdropFilter: 'blur(1px)',
+            }}
+          ></div>
         </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,7 +127,7 @@ export function Home() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="text-blue-200 text-sm">Licensed by COCOBOD Ghana</span>
+                <span className="text-white text-sm">Licensed by COCOBOD Ghana</span>
               </motion.div>
             </motion.div>
 
@@ -135,7 +141,7 @@ export function Home() {
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl mb-8 text-blue-100"
+              className="text-xl md:text-2xl mb-8 text-white"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -151,14 +157,14 @@ export function Home() {
             >
               <Link to="/contact">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-xl">
+                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer shadow-xl">
                     Become a Partner
                   </Button>
                 </motion.div>
               </Link>
               <Link to="/services">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm">
+                  <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20 cursor-pointer backdrop-blur-sm">
                     Our Services
                   </Button>
                 </motion.div>
@@ -184,7 +190,10 @@ export function Home() {
       </section>
 
       {/* Stats Section with Animated Counters */}
-      <section className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 text-white py-20">
+      <section
+        className="text-white py-20"
+        style={{ background: 'linear-gradient(90deg, #0099af 0%, #00b8cf 100%)' }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (

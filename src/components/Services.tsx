@@ -118,7 +118,12 @@ export function Services() {
             alt="Warehouse"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80"
+           style={{
+            background: 'linear-gradient(to right, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%),linear-gradient(to left, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%)',
+            backdropFilter: 'blur(1px)',
+          }}
+          ></div>
         </motion.div>
 
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
