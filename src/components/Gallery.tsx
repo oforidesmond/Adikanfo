@@ -4,117 +4,209 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ZoomIn, Filter } from 'lucide-react';
 import { Button } from './ui/button';
 
+type MainFilterId = 'seminars' | 'sustainability' | 'community';
+type SustainabilityFilterId =
+  | 'farmerGroups'
+  | 'trainings'
+  | 'traceability'
+  | 'mappingAudit'
+  | 'womenSupport'
+  | 'childProtection';
+
 interface GalleryImage {
-  id: number;
+  id: string;
   src: string;
   alt: string;
   category: string;
   title: string;
 }
 
+type MainFilterConfig = { id: MainFilterId; label: string; description: string };
+type SustainabilityFilterConfig = {
+  id: SustainabilityFilterId;
+  label: string;
+  folder:
+    | 'farmers'
+    | 'trainings'
+    | 'traceability'
+    | 'audit'
+    | 'support'
+    | 'protection';
+  description: string;
+};
+
+type GalleryFolder =
+  | 'seminars'
+  | 'development'
+  | 'farmers'
+  | 'trainings'
+  | 'traceability'
+  | 'audit'
+  | 'support'
+  | 'protection';
+
+const mainFilterConfigs: MainFilterConfig[] = [
+  {
+    id: 'seminars',
+    label: 'Seminars',
+    description:
+      'Scenes from our knowledge-sharing seminars, keynote sessions, and stakeholder briefings.',
+  },
+  {
+    id: 'sustainability',
+    label: 'Sustainability',
+    description:
+      'Explore each pillar of Adikanfo’s sustainability commitments—from farmer support to rigorous audits.',
+  },
+  {
+    id: 'community',
+    label: 'Community Development',
+    description:
+      'Snapshots of life-changing initiatives that strengthen the communities we serve.',
+  },
+];
+
+const sustainabilityFilterConfigs: SustainabilityFilterConfig[] = [
+  {
+    id: 'farmerGroups',
+    label: 'Farmer Groups',
+    folder: 'farmers',
+    description: 'Farmer group meetings and VSLA gatherings powered by our field teams.',
+  },
+  {
+    id: 'trainings',
+    label: 'Trainings',
+    folder: 'trainings',
+    description: 'Capacity-building workshops that equip farmers with good agricultural practices.',
+  },
+  {
+    id: 'traceability',
+    label: 'Traceability',
+    folder: 'traceability',
+    description: 'Field checks and digital processes that keep every cocoa bean fully traceable.',
+  },
+  {
+    id: 'mappingAudit',
+    label: 'Mapping & Audit',
+    folder: 'audit',
+    description: 'Data collection missions, mapping exercises, and compliance audits in action.',
+  },
+  {
+    id: 'womenSupport',
+    label: 'Women Support',
+    folder: 'support',
+    description: 'Initiatives that empower women entrepreneurs and caregivers within our value chain.',
+  },
+  {
+    id: 'childProtection',
+    label: 'Child Protection',
+    folder: 'protection',
+    description: 'Awareness campaigns and safeguarding interventions focused on protecting children.',
+  },
+];
+
+const mainFilterDescriptions = mainFilterConfigs.reduce(
+  (acc, filter) => ({ ...acc, [filter.id]: filter.description }),
+  {} as Record<MainFilterId, string>
+);
+
+const sustainabilityDescriptions = sustainabilityFilterConfigs.reduce(
+  (acc, filter) => ({ ...acc, [filter.id]: filter.description }),
+  {} as Record<SustainabilityFilterId, string>
+);
+
+const seminarsModuleMap = import.meta.glob(
+  '/public/seminars/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const developmentModuleMap = import.meta.glob(
+  '/public/development/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const farmersModuleMap = import.meta.glob(
+  '/public/farmers/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const trainingsModuleMap = import.meta.glob(
+  '/public/trainings/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const traceabilityModuleMap = import.meta.glob(
+  '/public/traceability/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const auditModuleMap = import.meta.glob(
+  '/public/audit/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const supportModuleMap = import.meta.glob(
+  '/public/support/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+const protectionModuleMap = import.meta.glob(
+  '/public/protection/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
+
+const folderImageMaps: Record<GalleryFolder, Record<string, string>> = {
+  seminars: seminarsModuleMap,
+  development: developmentModuleMap,
+  farmers: farmersModuleMap,
+  trainings: trainingsModuleMap,
+  traceability: traceabilityModuleMap,
+  audit: auditModuleMap,
+  support: supportModuleMap,
+  protection: protectionModuleMap,
+};
+
+const convertFolderToImages = (
+  folder: GalleryFolder,
+  idPrefix: string,
+  categoryLabel: string
+): GalleryImage[] =>
+  Object.keys(folderImageMaps[folder] ?? {})
+    .sort()
+    .map((key, index) => ({
+      id: `${idPrefix}-${index}`,
+      src: folderImageMaps[folder][key],
+      alt: `${categoryLabel} image ${index + 1}`,
+      title: `${categoryLabel} ${index + 1}`,
+      category: categoryLabel,
+    }));
+
+const galleryCollections = {
+  seminars: convertFolderToImages('seminars', 'seminars', 'Seminars'),
+  community: convertFolderToImages('development', 'community', 'Community Development'),
+  sustainability: sustainabilityFilterConfigs.reduce(
+    (acc, filter) => ({
+      ...acc,
+      [filter.id]: convertFolderToImages(
+        filter.folder,
+        filter.id,
+        `Sustainability · ${filter.label}`
+      ),
+    }),
+    {} as Record<SustainabilityFilterId, GalleryImage[]>
+  ),
+};
+
 export function Gallery() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [activeMainFilter, setActiveMainFilter] = useState<MainFilterId>('seminars');
+  const [activeSustainabilityFilter, setActiveSustainabilityFilter] =
+    useState<SustainabilityFilterId>('farmerGroups');
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
-  const categories = [
-    { id: 'all', label: 'All Photos' },
-    { id: 'farming', label: 'Farming' },
-    { id: 'processing', label: 'Processing' },
-    { id: 'facilities', label: 'Facilities' },
-    { id: 'community', label: 'Community' },
-  ];
-
-  const images: GalleryImage[] = [
-    {
-      id: 1,
-      src: 'https://images.unsplash.com/photo-1714102367897-4a19259feb75?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMGZhcm1lciUyMGhhcnZlc3Rpbmd8ZW58MXx8fHwxNzYzODE2MDI2fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Cocoa farmer harvesting',
-      category: 'farming',
-      title: 'Cocoa Harvesting',
-    },
-    {
-      id: 2,
-      src: 'https://images.unsplash.com/photo-1757332914733-212a7af33f0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMGZydWl0JTIwcG9kc3xlbnwxfHx8fDE3NjM4MTYwMjh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Cocoa pods on tree',
-      category: 'farming',
-      title: 'Fresh Cocoa Pods',
-    },
-    {
-      id: 3,
-      src: 'https://images.unsplash.com/photo-1637922808382-0e5930886159?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMHBsYW50YXRpb24lMjBmaWVsZHxlbnwxfHx8fDE3NjM4MTYwMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Cocoa plantation',
-      category: 'farming',
-      title: 'Cocoa Plantation',
-    },
-    {
-      id: 4,
-      src: 'https://images.unsplash.com/photo-1634303316622-33b4d64f1f65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMGJlYW5zJTIwY2hvY29sYXRlfGVufDF8fHx8MTc2MzgxNTAzMXww&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Cocoa beans',
-      category: 'processing',
-      title: 'Premium Cocoa Beans',
-    },
-    {
-      id: 5,
-      src: 'https://images.unsplash.com/photo-1619615174792-a5edcfeafdfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBjb2NvYSUyMHByb2Nlc3Npbmd8ZW58MXx8fHwxNzYzODE2MDI3fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Cocoa processing',
-      category: 'processing',
-      title: 'Quality Processing',
-    },
-    {
-      id: 6,
-      src: 'https://images.unsplash.com/photo-1665323418441-4c4e21e8bbdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMHBvZHMlMjB0cmVlfGVufDF8fHx8MTc2MzgxNTI5N3ww&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Cocoa pods close up',
-      category: 'farming',
-      title: 'Cocoa Pod Close-up',
-    },
-    {
-      id: 7,
-      src: 'https://images.unsplash.com/photo-1731847999830-6f71b78d720e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXJlaG91c2UlMjBzdG9yYWdlJTIwZmFjaWxpdHl8ZW58MXx8fHwxNzYzNzE0NzI5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Storage facility',
-      category: 'facilities',
-      title: 'Modern Storage Facility',
-    },
-    {
-      id: 8,
-      src: 'https://images.unsplash.com/photo-1618743572100-a3933e759dd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXJlaG91c2UlMjBhZ3JpY3VsdHVyZXxlbnwxfHx8fDE3NjM4MTUwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Warehouse facility',
-      category: 'facilities',
-      title: 'Warehouse Operations',
-    },
-    {
-      id: 9,
-      src: 'https://images.unsplash.com/photo-1585094659595-04a44bcba305?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYWdyaWN1bHR1cmUlMjB3b3JrZXJzfGVufDF8fHx8MTc2MzgxNjAyN3ww&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Agriculture workers',
-      category: 'community',
-      title: 'Our Team at Work',
-    },
-    {
-      id: 10,
-      src: 'https://images.unsplash.com/photo-1740741703636-1680d0c0f0a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwZmFybWVycyUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc2MzgxNTAzMnww&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Farmers community',
-      category: 'community',
-      title: 'Farming Community',
-    },
-    {
-      id: 11,
-      src: 'https://images.unsplash.com/photo-1652605961557-79888dcfab34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtaW5nJTIwY29tbXVuaXR5JTIwZ2hhbmF8ZW58MXx8fHwxNzYzODE2MDI4fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Ghana farming community',
-      category: 'community',
-      title: 'Community Partnership',
-    },
-    {
-      id: 12,
-      src: 'https://images.unsplash.com/photo-1696343782507-a8188a2e4865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnaGFuYSUyMGxhbmRzY2FwZSUyMGZpZWxkc3xlbnwxfHx8fDE3NjM4MTUyOTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      alt: 'Ghana landscape',
-      category: 'farming',
-      title: 'Beautiful Ghana',
-    },
-  ];
-
   const filteredImages =
-    selectedCategory === 'all'
-      ? images
-      : images.filter((img) => img.category === selectedCategory);
+    activeMainFilter === 'seminars'
+      ? galleryCollections.seminars
+      : activeMainFilter === 'community'
+        ? galleryCollections.community
+        : galleryCollections.sustainability[activeSustainabilityFilter] ?? [];
+
+  const activeCaption =
+    activeMainFilter === 'sustainability'
+      ? sustainabilityDescriptions[activeSustainabilityFilter]
+      : mainFilterDescriptions[activeMainFilter];
 
   return (
     <div>
@@ -171,7 +263,7 @@ export function Gallery() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-white border-b border-gray-200 sticky top-16 z-40">
+      <section className="py-12 bg-white border-b border-gray-200 sticky top-15 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="flex flex-wrap items-center justify-center gap-3"
@@ -183,7 +275,7 @@ export function Gallery() {
               <Filter size={20} />
               <span className="text-sm">Filter by:</span>
             </div>
-            {categories.map((category, index) => (
+            {mainFilterConfigs.map((category, index) => (
               <motion.div
                 key={category.id}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -191,10 +283,10 @@ export function Gallery() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Button
-                  onClick={() => setSelectedCategory(category.id)}
-                  variant={selectedCategory === category.id ? 'default' : 'outline'}
+                  onClick={() => setActiveMainFilter(category.id)}
+                  variant={activeMainFilter === category.id ? 'default' : 'outline'}
                   className={`${
-                    selectedCategory === category.id
+                    activeMainFilter === category.id
                       ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer'
                       : 'border-blue-300 text-blue-700 hover:bg-blue-50 cursor-pointer'
                   }`}
@@ -204,12 +296,46 @@ export function Gallery() {
               </motion.div>
             ))}
           </motion.div>
+          {activeMainFilter === 'sustainability' && (
+            <motion.div
+              className="flex flex-wrap items-center justify-center gap-2 mt-6"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              {sustainabilityFilterConfigs.map((filter) => (
+                <Button
+                  key={filter.id}
+                  onClick={() => setActiveSustainabilityFilter(filter.id)}
+                  size="sm"
+                  variant={
+                    activeSustainabilityFilter === filter.id ? 'default' : 'outline'
+                  }
+                  className={`${
+                    activeSustainabilityFilter === filter.id
+                      ? 'hover:to-emerald-800 cursor-pointer'
+                      : 'border-emerald-300 text-emerald-700 hover:bg-emerald-50 cursor-pointer'
+                  }`}
+                >
+                  {filter.label}
+                </Button>
+              ))}
+            </motion.div>
+          )}
+          <motion.div
+            className="mt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+          >
+            <p className="text-center text-gray-600 max-w-3xl mx-auto">{activeCaption}</p>
+          </motion.div>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8">
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             layout
@@ -235,12 +361,12 @@ export function Gallery() {
 
                   {/* Overlay */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
-                    style={{
-                    background:
-                    "linear-gradient(to top, rgba(0,153,175,0.85), rgba(0,153,175,0) 70%)",
-                    backdropFilter: "blur(1px)",
-                  }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+                  //   style={{
+                  //   background:
+                  //   "linear-gradient(to top, rgba(0,153,175,0.85), rgba(0,153,175,0) 70%)",
+                  //   backdropFilter: "blur(1px)",
+                  // }}
                     initial={false}
                   >
                     <motion.div
