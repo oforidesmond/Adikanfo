@@ -54,7 +54,7 @@ export function Header() {
             />
             <div className="flex flex-col">
               <span className="text-blue-900">Adikanfo Commodities</span>
-              <span className="text-xs text-blue-600">Licensed Cocoa Buyer</span>
+              <span className="text-xs text-blue-600">Farmers Friend</span>
             </div>
           </Link>
 

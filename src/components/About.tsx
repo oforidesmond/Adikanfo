@@ -1,5 +1,5 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Award, Target, Heart, Globe, Users, Handshake, Zap, TrendingUp } from 'lucide-react';
+import { Award, Target, Heart, Globe, Handshake, TrendingUp, Facebook, Linkedin, Twitter } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function About() {
@@ -61,24 +61,84 @@ export function About() {
 
   const team = [
     {
-      role: 'Leadership',
-      description: 'Experienced executives with deep industry knowledge',
-      icon: Users,
+      name: 'Theophilus Agyare Asare',
+      role: 'Co-Founder and Managing Director',
+      image: '/number1.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
     },
     {
-      role: 'Field Operations',
-      description: 'Dedicated teams working directly with farmers',
-      icon: Handshake,
+      name: 'Emmanuel Yorke',
+      role: 'Co-Founder and Deputy Managing Director',
+      image: '/number2.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
     },
     {
-      role: 'Quality Assurance',
-      description: 'Expert graders ensuring premium standards',
-      icon: Award,
+      name: 'Charles Ken Adu Boahen',
+      role: 'IT Manager',
+      image: '/number3.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
     },
     {
-      role: 'Innovation',
-      description: 'Continuously improving our processes and services',
-      icon: Zap,
+      name: 'Frederick Mensah',
+      role: 'Finance Manager',
+      image: '/number4.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Vida Ayorkor Laryea',
+      role: 'HR Manager',
+      image: '/number5.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Theresa Amaning',
+      role: 'Accounts Manager',
+      image: '/number6.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Aboagyewaa Ceasar-Wood',
+      role: 'Research Manager',
+      image: '/number7.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Daniel Osei Nkrumah',
+      role: 'Sustainability Manager',
+      image: '/number8.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
     },
   ];
 
@@ -352,19 +412,53 @@ export function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <motion.div
-                key={index}
-                className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl border border-blue-100"
+                key={member.name}
+                className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mb-4">
-                  <member.icon className="text-white" size={24} />
+                <div className="w-full h-64 mb-6 overflow-hidden rounded-xl">
+                  <ImageWithFallback
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 className="mb-2 text-blue-900">{member.role}</h3>
-                <p className="text-gray-600 text-sm">{member.description}</p>
+                <h3 className="text-xl font-semibold text-blue-900">{member.name}</h3>
+                <p className="text-blue-600 font-medium">{member.role}</p>
+
+                <div className="flex items-center justify-center gap-4 mt-6">
+                  <a
+                    href={member.socials.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${member.name} Facebook`}
+                    className="p-2 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+                  >
+                    <Facebook size={18} />
+                  </a>
+                  <a
+                    href={member.socials.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${member.name} LinkedIn`}
+                    className="p-2 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                  <a
+                    href={member.socials.twitter}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${member.name} Twitter`}
+                    className="p-2 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+                  >
+                    <Twitter size={18} />
+                  </a>
+                </div>
               </motion.div>
             ))}
           </div>

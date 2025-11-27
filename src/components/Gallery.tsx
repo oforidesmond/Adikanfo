@@ -165,7 +165,7 @@ export function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Explore our journey from farm to market - showcasing our farmers, facilities, and the quality cocoa we produce
+            Explore our Seminars and Adikanfo's Sustainability Program in action: documenting farmer training on Good Practices, the impact of our Village Savings and Loans (VSLA) initiatives, our partnership with Rikolto for Community Development and Diversification (e.g., animal rearing and agroforestry), Child Protection awareness efforts, and the rigorous traceability steps that track our quality cocoa from the farm to the market.
           </motion.p>
         </div>
       </section>
@@ -195,8 +195,8 @@ export function Gallery() {
                   variant={selectedCategory === category.id ? 'default' : 'outline'}
                   className={`${
                     selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'
-                      : 'border-blue-300 text-blue-700 hover:bg-blue-50'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer'
+                      : 'border-blue-300 text-blue-700 hover:bg-blue-50 cursor-pointer'
                   }`}
                 >
                   {category.label}
@@ -236,6 +236,11 @@ export function Gallery() {
                   {/* Overlay */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6"
+                    style={{
+                    background:
+                    "linear-gradient(to top, rgba(0,153,175,0.85), rgba(0,153,175,0) 70%)",
+                    backdropFilter: "blur(1px)",
+                  }}
                     initial={false}
                   >
                     <motion.div
@@ -294,7 +299,7 @@ export function Gallery() {
           >
             {/* Close Button */}
             <motion.button
-              className="absolute top-4 right-4 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10"
+              className="absolute top-4 right-4 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10 cursor-pointer"
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setSelectedImage(null)}
@@ -324,6 +329,11 @@ export function Gallery() {
                 {/* Image Info Overlay */}
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-900/95 to-transparent p-8"
+                  style={{
+                    background:
+                    "linear-gradient(to top, rgba(0,153,175,0.85), rgba(0,153,175,0) 70%)",
+                    backdropFilter: "blur(1px)",
+                  }}
                   initial={{ y: 100 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.2 }}
@@ -340,7 +350,7 @@ export function Gallery() {
               {/* Navigation Buttons */}
               <div className="flex justify-between mt-6">
                 <motion.button
-                  className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
+                  className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.05, x: -5 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
@@ -355,7 +365,7 @@ export function Gallery() {
                   ← Previous
                 </motion.button>
                 <motion.button
-                  className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
+                  className="px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {

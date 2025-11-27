@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { CheckCircle, Shield, TrendingUp, Users, Award, Leaf, Clock, Globe } from 'lucide-react';
+import { CheckCircle, Shield, TrendingUp, Users, Award, Leaf, Clock, Globe, Quote } from 'lucide-react';
 import { motion } from 'motion/react';
 import { AnimatedCounter } from './AnimatedCounter';
 import {
@@ -50,6 +50,37 @@ export function Home() {
       title: 'Reliable & Transparent',
       description: 'Immediate payments, efficient operations, and complete transparency',
     },
+  ];
+
+  const testimonials = [
+    {
+      quote:
+        'Adikanfo supports us beyond cocoa purchase. They dialogue with us to support our community; they are indeed farmer’s friend.',
+      image: '/farmer1.jpg',
+      name: 'Mary Afriyie',
+      location: 'Enchi',
+    },
+    {
+      quote:
+        'Adikanfo support my family well in my career as a purchasing clerk (PC). They always pay the right PC’s commission and pay on time.',
+      image: '/farmer2.jpg',
+      name: 'John Appiah',
+      location: 'Ateiku',
+    },
+    {
+      quote:
+        'Adikanfo commodities is a company you can really trust in the industry today. they have honest field personnel who doesn’t cheat farmers and also educate us about good agronomic practices.',
+      image: '/farmer3.jpg',
+      name: 'Afua Birago',
+      location: 'Konongo',
+    },
+  ];
+
+  const partners = [
+    { name: 'Partner 1', image: '/partner1.png' },
+    { name: 'Partner 2', image: '/partner2.png' },
+    { name: 'Partner 3', image: '/partner3.png' },
+    { name: 'Partner 4', image: '/partner4.png' },
   ];
 
   const stats = [
@@ -277,7 +308,7 @@ export function Home() {
               </motion.div>
               <h2 className="text-4xl md:text-5xl mb-6 text-blue-900">Empowering Ghana's Cocoa Farmers</h2>
               <p className="text-gray-600 mb-4 text-lg leading-relaxed">
-                Adikanfo Commodities is a fully licensed cocoa buying company operating under COCOBOD regulations. 
+                Adikanfo Commodities is a fully licensed cocoa buying company operating under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)) and strict regulations of WORLD COCOA FOUNDATION (WCF) and LICENSED COCOA BUYERS ASSOCIATION OF GHANA (LICOBAG). 
                 We are committed to creating sustainable value throughout the cocoa supply chain.
               </p>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
@@ -359,6 +390,92 @@ export function Home() {
                 </motion.div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Farmers Testimonials */}
+      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Farmers Testimonials</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              Don’t take our word for it – here’s what our farmers say:
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                className="bg-white p-8 rounded-2xl border border-blue-100 shadow-sm flex flex-col h-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white mb-4">
+                  <Quote size={28} />
+                </div>
+                <p className="text-gray-700 text-base leading-relaxed mb-6 flex-1">{testimonial.quote}</p>
+                <div className="text-center">
+                  <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-100 shadow-md">
+                    <ImageWithFallback
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-blue-900">{testimonial.name}</h3>
+                  <p className="text-sm text-blue-600">{testimonial.location}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Partners */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Our Strategic Partners</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              We collaborate with globally recognized organizations to deliver excellence throughout the cocoa value chain.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.name}
+                className="p-6 rounded-2xl border border-blue-100 bg-gradient-to-br from-white to-blue-50 flex items-center justify-center"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <ImageWithFallback
+                  src={partner.image}
+                  alt={partner.name}
+                  className="max-h-16 object-contain"
+                />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
