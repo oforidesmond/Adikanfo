@@ -48,12 +48,12 @@ export function Header() {
             <motion.img
               src="/index.png"
               alt="Adikanfo Commodities logo"
-              className="w-12 h-12 rounded-lg object-contain shadow-lg"
+              className="w-12 h-12 object-contain"
               whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             />
             <div className="flex flex-col">
-              <span className="text-blue-900">Adikanfo Commodities</span>
+              <span className="text-blue-900">Adikanfo Commodities Ltd.</span>
               <span className="text-xs text-blue-600">Farmers Friend</span>
             </div>
           </Link>

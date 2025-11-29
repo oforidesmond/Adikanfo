@@ -22,7 +22,7 @@ export function Footer() {
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               />
-              <span className="text-white">Adikanfo Commodities</span>
+              <span className="text-white">Adikanfo Commodities Ltd.</span>
             </div>
             <p className="text-sm">
               Licensed cocoa buying company committed to fair trade practices, quality assurance, and empowering Ghanaian farmers.
