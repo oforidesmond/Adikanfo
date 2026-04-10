@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -49,25 +50,25 @@ export function Contact() {
       icon: MapPin,
       title: 'Visit Us',
       details: ['Dr. Tagoe Lane GA -375-9289 East Legon', 'Greater Accra'],
-      color: 'from-blue-500 to-blue-700',
+      color: 'from-brand to-brand-deep',
     },
     {
       icon: Phone,
       title: 'Call Us',
       details: ['+233 (0) 307 010 132', '+233 (0) 302 556 680'],
-      color: 'from-cyan-500 to-cyan-700',
+      color: 'from-brand-deep to-cocoa-800',
     },
     {
       icon: Mail,
       title: 'Email Us',
       details: ['info@adikanfoghana.com', 'sales@adikanfoghana.com'],
-      color: 'from-teal-500 to-teal-700',
+      color: 'from-cocoa-800 to-cocoa-950',
     },
     {
       icon: Clock,
       title: 'Business Hours',
       details: ['Mon - Fri: 8:00 AM - 5:00 PM', 'Sat: 9:00 AM - 2:00 PM'],
-      color: 'from-indigo-500 to-indigo-700',
+      color: 'from-brand to-cocoa-900',
     },
   ];
 
@@ -101,65 +102,61 @@ export function Contact() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900"></div>
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '60px 60px',
-          }}
-        />
+      {/* Hero — partnership & origin story */}
+      <section className="relative min-h-[420px] md:min-h-[480px] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1740741703636-1680d0c0f0a0?auto=format&fit=crop&w=2000&q=80"
+            alt="Cocoa farmers and communities we partner with across Ghana"
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(100deg, rgba(26,17,13,0.9) 0%, rgba(45,33,28,0.72) 42%, rgba(93,168,198,0.28) 100%), linear-gradient(to top, rgba(26,17,13,0.75) 0%, transparent 50%)',
+            }}
+          />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-block mb-4 px-6 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full border border-blue-400/30"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full text-center md:text-left">
+          <div className="max-w-3xl mx-auto md:mx-0">
+            <motion.span
+              className="inline-block mb-5 px-5 py-2 rounded-full bg-brand-muted backdrop-blur-md border border-brand/40 text-cream text-sm"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <span className="text-blue-200">We're Here to Help</span>
-            </motion.div>
-          </motion.div>
-
-          <motion.h1
-            className="text-5xl md:text-6xl mb-4 text-white"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            Get In Touch
-          </motion.h1>
-
-          <motion.p
-            className="text-xl text-blue-100"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            We're here to answer your questions and discuss partnership opportunities
-          </motion.p>
+              We're here to help
+            </motion.span>
+            <motion.h1
+              className="text-4xl sm:text-5xl md:text-6xl mb-5 text-cream font-medium leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.08 }}
+            >
+              Let's build something lasting together
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl text-cream/90 max-w-2xl mx-auto md:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.16 }}
+            >
+              Questions about selling cocoa, partnerships, or our programs — reach out. Fair pricing and transparent relationships start with a conversation.
+            </motion.p>
+          </div>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-20 bg-gradient-to-b from-cream to-cream-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100"
+                className="bg-card rounded-2xl p-8 text-center shadow-card hover:shadow-card-hover transition-all duration-300 border border-cocoa-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -173,10 +170,10 @@ export function Contact() {
                 >
                   <info.icon className="text-white" size={28} />
                 </motion.div>
-                <h3 className="mb-4 text-blue-900">{info.title}</h3>
+                <h3 className="mb-4 text-cocoa-900">{info.title}</h3>
                 <div className="space-y-2">
                   {info.details.map((detail, dIndex) => (
-                    <p key={dIndex} className="text-gray-600 text-sm">
+                    <p key={dIndex} className="text-cocoa-700 text-sm">
                       {detail}
                     </p>
                   ))}
@@ -194,8 +191,8 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-blue-100">
-                <h2 className="text-3xl mb-6 text-blue-900">Send Us a Message</h2>
+              <div className="bg-card rounded-2xl shadow-card-hover p-8 border border-cocoa-200">
+                <h2 className="text-3xl mb-6 text-cocoa-900">Send Us a Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -295,7 +292,7 @@ export function Contact() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg"
+                      className="w-full bg-gradient-to-r from-brand to-brand-deep hover:from-brand-hover hover:to-brand-deep shadow-card text-white"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center justify-center">
@@ -328,11 +325,11 @@ export function Contact() {
             >
               {/* Collection Centers */}
               <motion.div
-                className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white shadow-xl"
+                className="bg-gradient-to-br from-cocoa-900 to-cocoa-950 rounded-2xl p-8 text-cream shadow-card-hover ring-1 ring-brand/25"
                 whileHover={{ scale: 1.02 }}
               >
                 <h3 className="text-2xl mb-6">Collection Centers</h3>
-                <p className="text-blue-100 mb-6">
+                <p className="text-cream/80 mb-6">
                   We have multiple collection centers across Ghana for your convenience:
                 </p>
                 <div className="grid grid-cols-2 gap-4">
@@ -346,7 +343,7 @@ export function Contact() {
                       transition={{ delay: index * 0.05 }}
                       whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
                     >
-                      <p className="text-sm text-blue-200 mb-1">{center.region}</p>
+                      <p className="text-sm text-brand mb-1">{center.region}</p>
                       <p className="text-sm">{center.location}</p>
                     </motion.div>
                   ))}
@@ -355,28 +352,28 @@ export function Contact() {
 
               {/* Emergency Contact */}
               <motion.div
-                className="bg-white rounded-2xl p-8 shadow-xl border border-blue-100"
+                className="bg-card rounded-2xl p-8 shadow-card border border-cocoa-200"
                 whileHover={{ scale: 1.02 }}
               >
-                <h3 className="mb-4 text-blue-900">Need Immediate Assistance?</h3>
-                <p className="text-gray-600 text-sm mb-6">
+                <h3 className="mb-4 text-cocoa-900">Need Immediate Assistance?</h3>
+                <p className="text-cocoa-700 text-sm mb-6">
                   For urgent matters or immediate support, please call our hotline:
                 </p>
                 <motion.div
-                  className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl text-center"
+                  className="bg-gradient-to-r from-cream-dark to-cocoa-100 p-6 rounded-xl text-center border border-cocoa-200"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <p className="text-3xl text-blue-700 mb-2">+233 (0) 307 010 132</p>
-                  <p className="text-sm text-blue-600">Available Monday - Saturday</p>
+                  <p className="text-3xl text-brand mb-2 font-medium">+233 (0) 307 010 132</p>
+                  <p className="text-sm text-cocoa-700">Available Monday - Saturday</p>
                 </motion.div>
               </motion.div>
 
               {/* Map Placeholder */}
               <motion.div
-                className="bg-gray-100 rounded-2xl h-64 flex items-center justify-center border border-gray-200 overflow-hidden"
+                className="bg-cream-dark rounded-2xl h-64 flex items-center justify-center border border-cocoa-200 overflow-hidden"
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="text-center text-gray-400">
+                <div className="text-center text-cocoa-600">
                   <MapPin size={48} className="mx-auto mb-2" />
                   <p>Head Office - Accra, Ghana</p>
                 </div>
@@ -387,7 +384,7 @@ export function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -395,23 +392,23 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl mb-4 text-blue-900">Frequently Asked Questions</h2>
-            <p className="text-gray-600 text-lg">Quick answers to common questions</p>
+            <h2 className="text-4xl mb-4 text-cocoa-900">Frequently Asked Questions</h2>
+            <p className="text-cocoa-700 text-lg">Quick answers to common questions</p>
           </motion.div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100 hover:shadow-lg transition-shadow"
+                className="bg-card p-8 rounded-2xl border border-cocoa-200 shadow-card hover:shadow-card-hover transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <h3 className="mb-3 text-blue-900">{faq.question}</h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <h3 className="mb-3 text-cocoa-900">{faq.question}</h3>
+                <p className="text-cocoa-700 leading-relaxed">{faq.answer}</p>
               </motion.div>
             ))}
           </div>

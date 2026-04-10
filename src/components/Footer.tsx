@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-gray-300">
+    <footer className="bg-gradient-to-br from-cocoa-950 via-cocoa-900 to-cocoa-950 text-cocoa-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -39,22 +39,22 @@ export function Footer() {
             <h3 className="text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="hover:text-blue-400 transition-colors">
+                <Link to="/" className="hover:text-brand transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-blue-400 transition-colors">
+                <Link to="/about" className="hover:text-brand transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-blue-400 transition-colors">
+                <Link to="/services" className="hover:text-brand transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-blue-400 transition-colors">
+                <Link to="/contact" className="hover:text-brand transition-colors">
                   Contact
                 </Link>
               </li>
@@ -107,7 +107,7 @@ export function Footer() {
             <div className="flex gap-4 mt-4">
               <motion.a
                 href="#"
-                className="hover:text-blue-400 transition-colors"
+                className="hover:text-brand transition-colors"
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -115,7 +115,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="#"
-                className="hover:text-blue-400 transition-colors"
+                className="hover:text-brand transition-colors"
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -123,7 +123,7 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="#"
-                className="hover:text-blue-400 transition-colors"
+                className="hover:text-brand transition-colors"
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -133,8 +133,8 @@ export function Footer() {
           </motion.div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>&copy; 2025 Adikanfo Commodities Ltd. All rights reserved. Licensed by Ghana Cocoa Board (COCOBOD).</p>
+        <div className="border-t border-cocoa-800 mt-8 pt-8 text-sm text-center text-cocoa-200">
+          <p>&copy; 2026 Adikanfo Commodities Ltd. All rights reserved. Licensed by Ghana Cocoa Board (COCOBOD).</p>
         </div>
       </div>
     </footer>

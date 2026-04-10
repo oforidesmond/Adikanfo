@@ -35,7 +35,7 @@ export function Header() {
   return (
     <motion.header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-white shadow-sm'
+        scrolled ? 'bg-cream/95 backdrop-blur-md shadow-card' : 'bg-cream/90 backdrop-blur-sm shadow-sm'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -53,8 +53,8 @@ export function Header() {
               whileTap={{ scale: 0.95 }}
             />
             <div className="flex flex-col">
-              <span className="text-blue-900">Adikanfo Commodities Ltd.</span>
-              <span className="text-xs text-blue-600">Farmers Friend</span>
+              <span className="text-cocoa-900">Adikanfo Commodities Ltd.</span>
+              <span className="text-xs text-brand">Farmers Friend</span>
             </div>
           </Link>
 
@@ -71,14 +71,14 @@ export function Header() {
                   to={link.path}
                   className={`relative transition-colors ${
                     isActive(link.path)
-                      ? 'text-blue-700'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? 'text-brand'
+                      : 'text-cocoa-700 hover:text-brand'
                   }`}
                 >
                   {link.label}
                   {isActive(link.path) && (
                     <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-700"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand"
                       layoutId="navbar-indicator"
                     />
                   )}
@@ -87,7 +87,7 @@ export function Header() {
             ))}
             <Link to="/contact">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-md cursor-pointer">
+                <Button className="bg-gradient-to-r from-brand to-brand-deep hover:from-brand-hover hover:to-brand-deep shadow-card cursor-pointer text-white">
                   Get Started
                 </Button>
               </motion.div>
@@ -125,8 +125,8 @@ export function Header() {
                     to={link.path}
                     className={`block py-2 transition-colors ${
                       isActive(link.path)
-                        ? 'text-blue-700'
-                        : 'text-gray-700 hover:text-blue-600'
+                        ? 'text-brand'
+                        : 'text-cocoa-700 hover:text-brand'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -135,7 +135,7 @@ export function Header() {
                 </motion.div>
               ))}
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer">
+                <Button className="w-full bg-gradient-to-r from-brand to-brand-deep hover:from-brand-hover hover:to-brand-deep cursor-pointer text-white">
                   Get Started
                 </Button>
               </Link>

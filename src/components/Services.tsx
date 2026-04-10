@@ -16,7 +16,7 @@ export function Services() {
         'Flexible purchase quantities',
         'Quality-based pricing incentives',
       ],
-      color: 'from-blue-500 to-blue-700',
+      color: 'from-brand to-brand-deep',
     },
     {
       icon: TestTube,
@@ -28,7 +28,7 @@ export function Services() {
         'Fermentation quality testing',
         'Bean count and size verification',
       ],
-      color: 'from-cyan-500 to-cyan-700',
+      color: 'from-brand-deep to-cocoa-800',
     },
     {
       icon: Truck,
@@ -40,7 +40,7 @@ export function Services() {
         'Pest prevention measures',
         'Reliable transportation network',
       ],
-      color: 'from-teal-500 to-teal-700',
+      color: 'from-cocoa-800 to-cocoa-950',
     },
     {
       icon: GraduationCap,
@@ -52,7 +52,7 @@ export function Services() {
         'Pest and disease management',
         'Sustainable farming methods',
       ],
-      color: 'from-indigo-500 to-indigo-700',
+      color: 'from-brand to-cocoa-900',
     },
     {
       icon: DollarSign,
@@ -64,7 +64,7 @@ export function Services() {
         'Flexible repayment terms',
         'Financial literacy training',
       ],
-      color: 'from-purple-500 to-purple-700',
+      color: 'from-cocoa-700 to-cocoa-950',
     },
     {
       icon: BarChart,
@@ -76,7 +76,7 @@ export function Services() {
         'Export demand forecasts',
         'Industry news and insights',
       ],
-      color: 'from-sky-500 to-sky-700',
+      color: 'from-brand-hover to-brand-deep',
     },
   ];
 
@@ -118,12 +118,14 @@ export function Services() {
             alt="Warehouse"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80"
-           style={{
-            background: 'linear-gradient(to right, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%),linear-gradient(to left, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%)',
-            backdropFilter: 'blur(1px)',
-          }}
-          ></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to right, rgba(26,17,13,0.88), rgba(45,33,28,0.4) 45%, transparent 60%), linear-gradient(to left, rgba(93,168,198,0.45), rgba(93,168,198,0) 55%)',
+              backdropFilter: 'blur(1px)',
+            }}
+          />
         </motion.div>
 
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
@@ -133,12 +135,12 @@ export function Services() {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="inline-block mb-4 px-6 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full border border-blue-400/30"
+              className="inline-block mb-4 px-6 py-2 bg-brand-muted backdrop-blur-sm rounded-full border border-brand/35"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <span className="text-blue-200">What We Offer</span>
+              <span className="text-cream/90">What We Offer</span>
             </motion.div>
           </motion.div>
 
@@ -152,7 +154,7 @@ export function Services() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-blue-100"
+            className="text-xl md:text-2xl text-cream/90"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -163,7 +165,7 @@ export function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-gradient-to-b from-cream to-cream-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -171,8 +173,8 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">What We Offer</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">What We Offer</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               End-to-end services supporting cocoa farmers and ensuring premium quality
             </p>
           </motion.div>
@@ -181,7 +183,7 @@ export function Services() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100"
+                className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-cocoa-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -199,20 +201,20 @@ export function Services() {
                     <service.icon className="text-white" size={32} />
                   </motion.div>
 
-                  <h3 className="mb-3 text-blue-900">{service.title}</h3>
-                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">{service.description}</p>
+                  <h3 className="mb-3 text-cocoa-900">{service.title}</h3>
+                  <p className="text-cocoa-700 text-sm mb-6 leading-relaxed">{service.description}</p>
 
                   <ul className="space-y-3">
                     {service.features.map((feature, fIndex) => (
                       <motion.li
                         key={fIndex}
-                        className="text-sm text-gray-600 flex items-start"
+                        className="text-sm text-cocoa-700 flex items-start"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: fIndex * 0.05 }}
                       >
-                        <CheckCircle2 className="text-blue-600 mr-2 flex-shrink-0 mt-0.5" size={16} />
+                        <CheckCircle2 className="text-brand mr-2 flex-shrink-0 mt-0.5" size={16} />
                         <span>{feature}</span>
                       </motion.li>
                     ))}
@@ -225,7 +227,7 @@ export function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -233,15 +235,15 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">How It Works</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">How It Works</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               A simple, transparent process ensuring quality and fair compensation
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8 relative">
             {/* Connecting Line (hidden on mobile) */}
-            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 transform translate-y-8" 
+            <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-gradient-to-r from-cocoa-200 via-brand/60 to-brand-deep transform translate-y-8" 
                  style={{ width: 'calc(100% - 8rem)', left: '4rem' }}></div>
 
             {processSteps.map((step, index) => (
@@ -254,7 +256,7 @@ export function Services() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <motion.div
-                  className="w-32 h-32 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl relative"
+                  className="w-32 h-32 bg-gradient-to-br from-brand to-brand-deep rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-card-hover relative"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -262,15 +264,15 @@ export function Services() {
                   
                   {/* Pulse Effect */}
                   <motion.div
-                    className="absolute inset-0 bg-blue-400 rounded-2xl"
+                    className="absolute inset-0 bg-brand/40 rounded-2xl"
                     initial={{ opacity: 0.5, scale: 1 }}
                     animate={{ opacity: 0, scale: 1.2 }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
                 </motion.div>
 
-                <h3 className="mb-3 text-blue-900">{step.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                <h3 className="mb-3 text-cocoa-900">{step.title}</h3>
+                <p className="text-cocoa-700 text-sm leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -278,17 +280,13 @@ export function Services() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-cocoa-950 via-cocoa-900 to-cocoa-950 text-cream relative overflow-hidden">
         {/* Animated Background Pattern */}
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
+        <div
+          className="absolute inset-0 opacity-40"
           style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '60px 60px',
+            backgroundImage:
+              'radial-gradient(circle at 25% 70%, rgb(93 168 198 / 0.2), transparent 42%), radial-gradient(circle at 75% 30%, rgb(93 168 198 / 0.12), transparent 45%)',
           }}
         />
 
@@ -300,7 +298,7 @@ export function Services() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl mb-4">Why Partner With Adikanfo?</h2>
-            <p className="text-blue-100 max-w-2xl mx-auto text-lg">
+            <p className="text-cream/85 max-w-2xl mx-auto text-lg">
               The benefits of working with Ghana's trusted cocoa buying company
             </p>
           </motion.div>
@@ -336,7 +334,7 @@ export function Services() {
                   <benefit.icon className="text-white" size={32} />
                 </div>
                 <h3 className="mb-3">{benefit.title}</h3>
-                <p className="text-blue-100 leading-relaxed">{benefit.description}</p>
+                <p className="text-cream/85 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -344,7 +342,7 @@ export function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-gradient-to-b from-cream-dark to-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -352,13 +350,13 @@ export function Services() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl mb-6 text-blue-900">Ready to Get Started?</h2>
-            <p className="text-gray-600 text-xl mb-10">
+            <h2 className="text-4xl md:text-5xl mb-6 text-cocoa-900">Ready to Get Started?</h2>
+            <p className="text-cocoa-700 text-xl mb-10">
               Join our network of satisfied farmers and experience the Adikanfo difference.
             </p>
             <Link to="/contact">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-xl px-8 py-6 text-lg">
+                <Button size="lg" className="bg-gradient-to-r from-brand to-brand-deep hover:from-brand-hover hover:to-brand-deep shadow-card-hover px-8 py-6 text-lg text-white">
                   Contact Us Today
                 </Button>
               </motion.div>

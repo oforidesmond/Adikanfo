@@ -133,13 +133,14 @@ export function Home() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex bg-white/50 text-blue-900 hover:bg-white/80" />
-            <CarouselNext className="hidden md:flex bg-white/50 text-blue-900 hover:bg-white/80" />
+            <CarouselPrevious className="hidden md:flex bg-cream/80 text-cocoa-900 hover:bg-cream shadow-card border border-cocoa-200/50" />
+            <CarouselNext className="hidden md:flex bg-cream/80 text-cocoa-900 hover:bg-cream shadow-card border border-cocoa-200/50" />
           </Carousel>
           <div
             className="pointer-events-none absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%),linear-gradient(to left, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%)',
+              background:
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(93,168,198,0.55), rgba(93,168,198,0) 50%)',
               backdropFilter: 'blur(1px)',
             }}
           ></div>
@@ -153,7 +154,7 @@ export function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.div
-                className="inline-block mb-4 px-4 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full border border-blue-400/30"
+                className="inline-block mb-4 px-4 py-2 bg-brand-muted backdrop-blur-sm rounded-full border border-brand/35"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
@@ -188,7 +189,7 @@ export function Home() {
             >
               <Link to="/contact">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 cursor-pointer shadow-xl">
+                  <Button size="lg" className="bg-gradient-to-r from-brand to-brand-deep hover:from-brand-hover hover:to-brand-deep cursor-pointer shadow-card-hover text-white">
                     Become a Partner
                   </Button>
                 </motion.div>
@@ -223,7 +224,7 @@ export function Home() {
       {/* Stats Section with Animated Counters */}
       <section
         className="text-white py-20"
-        style={{ background: 'linear-gradient(90deg, #0099af 0%, #00b8cf 100%)' }}
+        style={{ background: 'linear-gradient(90deg, #5da8c6 0%, #3d86a3 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -239,7 +240,7 @@ export function Home() {
                 <div className="text-4xl md:text-5xl mb-2">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-blue-100">{stat.label}</div>
+                <div className="text-cream/90">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -247,7 +248,7 @@ export function Home() {
       </section>
 
       {/* Features Section with Stagger Animation */}
-      <section className="py-24 bg-gradient-to-b from-white to-blue-50">
+      <section className="py-24 bg-gradient-to-b from-cream to-cream-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -256,8 +257,8 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Why Choose Adikanfo</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Why Choose Adikanfo</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               Combining traditional values with modern excellence to serve Ghana's cocoa industry
             </p>
           </motion.div>
@@ -266,7 +267,7 @@ export function Home() {
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-blue-100"
+                className="bg-card p-8 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-cocoa-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -274,14 +275,14 @@ export function Home() {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <motion.div
-                  className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mb-6 shadow-lg"
+                  className="w-16 h-16 bg-gradient-to-br from-brand to-brand-deep rounded-xl flex items-center justify-center mb-6 shadow-card"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <feature.icon className="text-white" size={32} />
                 </motion.div>
-                <h3 className="mb-3 text-blue-900">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="mb-3 text-cocoa-900">{feature.title}</h3>
+                <p className="text-cocoa-700 text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -289,7 +290,7 @@ export function Home() {
       </section>
 
       {/* About Preview with Image Animation */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -299,19 +300,19 @@ export function Home() {
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full"
+                className="inline-block mb-4 px-4 py-2 bg-cocoa-100 rounded-full"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
               >
-                <span className="text-blue-700 text-sm">Our Story</span>
+                <span className="text-brand text-sm font-medium">Our Story</span>
               </motion.div>
-              <h2 className="text-4xl md:text-5xl mb-6 text-blue-900">Empowering Ghana's Cocoa Farmers</h2>
-              <p className="text-gray-600 mb-4 text-lg leading-relaxed">
+              <h2 className="text-4xl md:text-5xl mb-6 text-cocoa-900">Empowering Ghana's Cocoa Farmers</h2>
+              <p className="text-cocoa-700 mb-4 text-lg leading-relaxed">
                 Adikanfo Commodities is a fully licensed cocoa buying company operating under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)) and strict regulations of WORLD COCOA FOUNDATION (WCF) and LICENSED COCOA BUYERS ASSOCIATION OF GHANA (LICOBAG). 
                 We are committed to creating sustainable value throughout the cocoa supply chain.
               </p>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+              <p className="text-cocoa-700 mb-6 text-lg leading-relaxed">
                 Our mission is to provide farmers with competitive prices, reliable service, and the support they 
                 need to thrive. We combine years of industry expertise with modern practices to ensure quality and fairness.
               </p>
@@ -321,19 +322,19 @@ export function Home() {
                 {values.map((value, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg"
+                    className="flex items-start gap-3 p-4 bg-cream-dark rounded-lg border border-cocoa-200/60"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-br from-brand to-brand-deep rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
                       <value.icon className="text-white" size={20} />
                     </div>
                     <div>
-                      <h4 className="text-sm text-blue-900 mb-1">{value.title}</h4>
-                      <p className="text-xs text-gray-600">{value.description}</p>
+                      <h4 className="text-sm text-cocoa-900 mb-1">{value.title}</h4>
+                      <p className="text-xs text-cocoa-700">{value.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -341,7 +342,7 @@ export function Home() {
 
               <Link to="/about">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                  <Button variant="outline" className="border-brand text-brand hover:bg-brand-muted">
                     Learn More About Us
                   </Button>
                 </motion.div>
@@ -356,12 +357,12 @@ export function Home() {
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="absolute -top-8 -left-8 w-32 h-32 bg-blue-200 rounded-full opacity-50"
+                className="absolute -top-8 -left-8 w-32 h-32 bg-cocoa-200 rounded-full opacity-40"
                 animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
                 transition={{ duration: 20, repeat: Infinity }}
               />
               <motion.div
-                className="absolute -bottom-8 -right-8 w-40 h-40 bg-blue-300 rounded-full opacity-30"
+                className="absolute -bottom-8 -right-8 w-40 h-40 bg-brand/25 rounded-full opacity-50"
                 animate={{ scale: [1, 1.3, 1], rotate: [360, 180, 0] }}
                 transition={{ duration: 25, repeat: Infinity }}
               />
@@ -395,7 +396,7 @@ export function Home() {
       </section>
 
       {/* Farmers Testimonials */}
-      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-gradient-to-b from-cream-dark to-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -404,8 +405,8 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Farmers Testimonials</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Farmers Testimonials</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               Don’t take our word for it – here’s what our farmers say:
             </p>
           </motion.div>
@@ -414,27 +415,27 @@ export function Home() {
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
-                className="bg-white p-8 rounded-2xl border border-blue-100 shadow-sm flex flex-col h-full"
+                className="bg-card p-8 rounded-2xl border border-cocoa-200 shadow-card flex flex-col h-full"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
               >
-                <div className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white mb-4">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand to-brand-deep flex items-center justify-center text-white mb-4 shadow-card">
                   <Quote size={28} />
                 </div>
-                <p className="text-gray-700 text-base leading-relaxed mb-6 flex-1">{testimonial.quote}</p>
+                <p className="text-cocoa-800 text-base leading-relaxed mb-6 flex-1">{testimonial.quote}</p>
                 <div className="text-center">
-                  <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-blue-100 shadow-md">
+                  <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-cocoa-200 shadow-card">
                     <ImageWithFallback
                       src={testimonial.image}
                       alt={testimonial.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold text-blue-900">{testimonial.name}</h3>
-                  <p className="text-sm text-blue-600">{testimonial.location}</p>
+                  <h3 className="text-lg font-semibold text-cocoa-900">{testimonial.name}</h3>
+                  <p className="text-sm text-brand">{testimonial.location}</p>
                 </div>
               </motion.div>
             ))}
@@ -443,7 +444,7 @@ export function Home() {
       </section>
 
       {/* Strategic Partners */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -452,8 +453,8 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Our Strategic Partners</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Our Strategic Partners</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               We collaborate with globally recognized organizations to deliver excellence throughout the cocoa value chain.
             </p>
           </motion.div>
@@ -462,7 +463,7 @@ export function Home() {
             {partners.map((partner, index) => (
               <motion.div
                 key={partner.name}
-                className="p-6 rounded-2xl border border-blue-100 bg-gradient-to-br from-white to-blue-50 flex items-center justify-center"
+                className="p-6 rounded-2xl border border-cocoa-200 bg-gradient-to-br from-card to-cream-dark flex items-center justify-center shadow-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -482,16 +483,12 @@ export function Home() {
 
       {/* CTA Section with Gradient Background */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900"></div>
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
-          }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
+        <div className="absolute inset-0 bg-gradient-to-br from-cocoa-950 via-cocoa-900 to-cocoa-950" />
+        <div
+          className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '60px 60px',
+            backgroundImage:
+              'radial-gradient(circle at 20% 80%, rgb(93 168 198 / 0.35), transparent 45%), radial-gradient(circle at 80% 20%, rgb(93 168 198 / 0.2), transparent 40%)',
           }}
         />
 
@@ -502,8 +499,8 @@ export function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl mb-6 text-white">Ready to Partner With Us?</h2>
-            <p className="text-xl mb-10 text-blue-100 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl mb-6 text-cream">Ready to Partner With Us?</h2>
+            <p className="text-xl mb-10 text-cream/85 max-w-2xl mx-auto">
               Join thousands of farmers who trust Adikanfo Commodities for fair prices, quality service, and reliable partnerships.
             </p>
             <Link to="/contact">
@@ -511,7 +508,10 @@ export function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 shadow-2xl px-8 py-6 text-lg">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-brand to-brand-deep text-white hover:from-brand-hover hover:to-brand-deep shadow-card-hover px-8 py-6 text-lg"
+                >
                   Get Started Today
                 </Button>
               </motion.div>

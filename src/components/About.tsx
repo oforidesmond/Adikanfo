@@ -157,12 +157,14 @@ export function About() {
             alt="Ghana landscape"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80"
-          style={{
-            background: 'linear-gradient(to right, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%),linear-gradient(to left, rgba(0,153,175,0.85), rgba(0,153,175,0) 55%)',
-            backdropFilter: 'blur(1px)',
-          }}
-          ></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to right, rgba(26,17,13,0.88), rgba(45,33,28,0.4) 45%, transparent 60%), linear-gradient(to left, rgba(93,168,198,0.45), rgba(93,168,198,0) 55%)',
+              backdropFilter: 'blur(1px)',
+            }}
+          />
         </motion.div>
 
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
@@ -172,12 +174,12 @@ export function About() {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="inline-block mb-4 px-6 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full border border-blue-400/30"
+              className="inline-block mb-4 px-6 py-2 bg-brand-muted backdrop-blur-sm rounded-full border border-brand/35"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <span className="text-blue-200">Our Story</span>
+              <span className="text-cream/90">Our Story</span>
             </motion.div>
           </motion.div>
 
@@ -191,7 +193,7 @@ export function About() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-blue-100"
+            className="text-xl md:text-2xl text-cream/90"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -202,7 +204,7 @@ export function About() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -212,23 +214,23 @@ export function About() {
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="inline-block mb-4 px-4 py-2 bg-blue-100 rounded-full"
+                className="inline-block mb-4 px-4 py-2 bg-cocoa-100 rounded-full"
                 whileHover={{ scale: 1.05 }}
               >
-                <span className="text-blue-700 text-sm">Who We Are</span>
+                <span className="text-brand text-sm font-medium">Who We Are</span>
               </motion.div>
 
-              <h2 className="text-4xl md:text-5xl mb-6 text-blue-900">Our Journey</h2>
-              <p className="text-gray-600 mb-4 text-lg leading-relaxed">
+              <h2 className="text-4xl md:text-5xl mb-6 text-cocoa-900">Our Journey</h2>
+              <p className="text-cocoa-700 mb-4 text-lg leading-relaxed">
                 Founded in 2013, Adikanfo Commodities emerged with a clear mission: to create a transparent, 
                 fair, and efficient cocoa buying system that benefits both farmers and the industry at large.
               </p>
-              <p className="text-gray-600 mb-4 text-lg leading-relaxed">
+              <p className="text-cocoa-700 mb-4 text-lg leading-relaxed">
                 As a fully licensed buying company, we have built a 
                 reputation for integrity, reliability, and excellence. Our name "Adikanfo" reflects our 
                 commitment to being pioneers in ethical cocoa trading.
               </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-cocoa-700 text-lg leading-relaxed">
                 Today, we work with over 3,000 smallholder farmers across Ghana's cocoa-growing regions, 
                 processing thousands of tons of premium cocoa annually while maintaining the highest standards 
                 of quality and sustainability.
@@ -257,28 +259,28 @@ export function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-gradient-to-b from-cream-dark to-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
-              className="bg-white p-10 rounded-2xl shadow-xl border border-blue-100"
+              className="bg-card p-10 rounded-2xl shadow-card-hover border border-cocoa-200"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               whileHover={{ y: -5, shadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand to-brand-deep rounded-xl flex items-center justify-center mb-6 shadow-card">
                 <Target className="text-white" size={32} />
               </div>
-              <h2 className="text-3xl mb-4 text-blue-900">Our Mission</h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <h2 className="text-3xl mb-4 text-cocoa-900">Our Mission</h2>
+              <p className="text-cocoa-700 text-lg leading-relaxed">
                 Our primary mission is to purchase quality cocoa beans from the farmers and evacuate same to Ghana Cocoa Board (COCOBOD) and pay adequate compensation to the farmers
               </p>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-blue-600 to-blue-800 p-10 rounded-2xl shadow-xl text-white"
+              className="bg-gradient-to-br from-cocoa-900 to-cocoa-950 p-10 rounded-2xl shadow-card-hover text-cream ring-1 ring-brand/30"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -289,7 +291,7 @@ export function About() {
                 <TrendingUp className="text-white" size={32} />
               </div>
               <h2 className="text-3xl mb-4">Our Vision</h2>
-              <p className="text-blue-100 text-lg leading-relaxed">
+              <p className="text-cream/85 text-lg leading-relaxed">
                 Our vision is to be the  most  efficient and profitable licenced cocoa buying company in Ghana
               </p>
             </motion.div>
@@ -298,7 +300,7 @@ export function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -306,8 +308,8 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Our Core Values</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Our Core Values</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               The principles that guide our business and shape our relationships
             </p>
           </motion.div>
@@ -323,14 +325,14 @@ export function About() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <motion.div
-                  className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg"
+                  className="w-20 h-20 bg-gradient-to-br from-brand to-brand-deep rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-card"
                   whileHover={{ scale: 1.1, rotate: 10 }}
                   transition={{ duration: 0.3 }}
                 >
                   <value.icon className="text-white" size={36} />
                 </motion.div>
-                <h3 className="mb-3 text-blue-900">{value.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="mb-3 text-cocoa-900">{value.title}</h3>
+                <p className="text-cocoa-700 text-sm leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -338,7 +340,7 @@ export function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-24 bg-gradient-to-b from-cream-dark to-cream">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -346,15 +348,15 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Our Journey</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Our Journey</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               Milestones that shaped our company
             </p>
           </motion.div>
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-cocoa-200"></div>
 
             {timeline.map((item, index) => (
               <motion.div
@@ -369,18 +371,18 @@ export function About() {
               >
                 <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                   <motion.div
-                    className="bg-white p-6 rounded-xl shadow-lg border border-blue-100"
+                    className="bg-card p-6 rounded-xl shadow-card border border-cocoa-200"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <div className="text-blue-600 mb-2">{item.year}</div>
-                    <h3 className="text-blue-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 text-sm">{item.description}</p>
+                    <div className="text-brand font-medium mb-2">{item.year}</div>
+                    <h3 className="text-cocoa-900 mb-2">{item.title}</h3>
+                    <p className="text-cocoa-700 text-sm">{item.description}</p>
                   </motion.div>
                 </div>
 
                 {/* Center Dot */}
                 <motion.div
-                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-lg z-10"
+                  className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-brand rounded-full border-4 border-cream shadow-card z-10"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
@@ -395,7 +397,7 @@ export function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -403,8 +405,8 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-4 text-blue-900">Our Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Our Team</h2>
+            <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
               Adikanfo Commodities Limited has resourceful and dynamic management team which is committed to the realization of the vision and mission of the company. They have rich experiences in the cocoa industry
             </p>
           </motion.div>
@@ -413,7 +415,7 @@ export function About() {
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border border-blue-100 text-center"
+                className="bg-gradient-to-br from-cream-dark to-card p-6 rounded-2xl border border-cocoa-200 text-center shadow-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -427,8 +429,8 @@ export function About() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-blue-900">{member.name}</h3>
-                <p className="text-blue-600 font-medium">{member.role}</p>
+                <h3 className="text-xl font-semibold text-cocoa-900">{member.name}</h3>
+                <p className="text-brand font-medium">{member.role}</p>
 
                 <div className="flex items-center justify-center gap-4 mt-6">
                   <a
@@ -436,7 +438,7 @@ export function About() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={`${member.name} Facebook`}
-                    className="p-2 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+                    className="p-2 rounded-full bg-cocoa-100 text-brand hover:bg-brand-muted transition"
                   >
                     <Facebook size={18} />
                   </a>
@@ -445,7 +447,7 @@ export function About() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={`${member.name} LinkedIn`}
-                    className="p-2 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+                    className="p-2 rounded-full bg-cocoa-100 text-brand hover:bg-brand-muted transition"
                   >
                     <Linkedin size={18} />
                   </a>
@@ -454,7 +456,7 @@ export function About() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={`${member.name} Twitter`}
-                    className="p-2 rounded-full bg-blue-100 text-blue-700 hover:bg-blue-200 transition"
+                    className="p-2 rounded-full bg-cocoa-100 text-brand hover:bg-brand-muted transition"
                   >
                     <Twitter size={18} />
                   </a>
@@ -466,7 +468,7 @@ export function About() {
       </section>
 
       {/* Certifications */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+      <section className="py-24 bg-gradient-to-br from-cocoa-950 via-cocoa-900 to-cocoa-950 text-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -475,7 +477,7 @@ export function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl mb-4">Licenses & Certifications</h2>
-            <p className="text-blue-100 max-w-2xl mx-auto text-lg">
+            <p className="text-cream/85 max-w-2xl mx-auto text-lg">
               Fully compliant and certified to the highest standards
             </p>
           </motion.div>
@@ -503,7 +505,7 @@ export function About() {
                   <Award className="text-white" size={36} />
                 </motion.div>
                 <h3 className="mb-2">{cert.title}</h3>
-                <p className="text-blue-200 text-sm">{cert.desc}</p>
+                <p className="text-cream/75 text-sm">{cert.desc}</p>
               </motion.div>
             ))}
           </div>
