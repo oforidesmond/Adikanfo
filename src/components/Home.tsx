@@ -13,6 +13,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from './ui/carousel';
+import { MarketInsightsWidget } from './MarketInsightsWidget';
 
 export function Home() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
@@ -146,8 +147,9 @@ export function Home() {
           ></div>
         </motion.div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            <div className="lg:col-span-7 max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -202,6 +204,10 @@ export function Home() {
                 </motion.div>
               </Link>
             </motion.div>
+            </div>
+            <div className="lg:col-span-5 w-full max-w-md lg:max-w-none lg:justify-self-end">
+              <MarketInsightsWidget />
+            </div>
           </div>
         </div>
 
