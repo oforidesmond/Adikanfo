@@ -1,5 +1,16 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Package, TestTube, Truck, GraduationCap, DollarSign, BarChart, CheckCircle2 } from 'lucide-react';
+import {
+  CheckCircle,
+  CheckCircle2,
+  DollarSign,
+  GraduationCap,
+  Heart,
+  Leaf,
+  Package,
+  ShieldCheck,
+  Truck,
+  Users,
+} from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from './ui/button';
 import { motion } from 'motion/react';
@@ -8,73 +19,73 @@ export function Services() {
   const services = [
     {
       icon: Package,
-      title: 'Cocoa Procurement',
-      description: 'We purchase premium cocoa beans directly from farmers at competitive market rates with immediate payment.',
+      title: 'Traceable Cocoa Sourcing',
+      description:
+        'We source high-quality, traceable cocoa beans (certified or conventional) directly from farmers and deliver to COCOBOD takeover centers in Tema, Takoradi and Kumasi (Kaase).',
       features: [
-        'Competitive pricing based on COCOBOD rates',
-        'Immediate payment upon quality verification',
-        'Flexible purchase quantities',
-        'Quality-based pricing incentives',
+        'Certified or conventional traceable cocoa',
+        'Direct sourcing through our purchasing network',
+        'Reliable evacuation to COCOBOD takeover centers',
       ],
       color: 'from-brand to-brand-deep',
     },
     {
-      icon: TestTube,
-      title: 'Quality Assessment',
-      description: 'Expert quality control ensuring all cocoa meets Ghana and international export standards.',
+      icon: ShieldCheck,
+      title: 'Purchasing, Grading & Compliance',
+      description:
+        'Strict purchasing and grading processes with adherence to COCOBOD quality and compliance standards.',
       features: [
-        'Professional grading and sorting',
-        'Moisture content analysis',
-        'Fermentation quality testing',
-        'Bean count and size verification',
+        'Professional grading aligned to COCOBOD standards',
+        'Quality control to protect bean integrity',
+        'Strong compliance discipline across operations',
       ],
       color: 'from-brand-deep to-cocoa-800',
     },
     {
       icon: Truck,
-      title: 'Storage & Logistics',
-      description: 'Modern storage facilities with efficient logistics ensuring proper preservation and timely delivery.',
+      title: 'Efficient Transport & Delivery',
+      description:
+        'Efficient transport and delivery operations designed to reduce post-harvest losses and improve turnaround times.',
       features: [
-        'Climate-controlled warehouses',
-        'Proper ventilation systems',
-        'Pest prevention measures',
-        'Reliable transportation network',
+        'Timely evacuation across our supply chain',
+        'Operational discipline for reliable performance',
+        'Delivery to Tema, Takoradi and Kumasi (Kaase)',
       ],
       color: 'from-cocoa-800 to-cocoa-950',
     },
     {
-      icon: GraduationCap,
-      title: 'Farmer Training',
-      description: 'Comprehensive programs to help farmers improve yields, quality, and adopt best practices.',
+      icon: Users,
+      title: 'Farmer Registration & Engagement',
+      description:
+        'Our operations are built on farmer registration and continuous engagement to strengthen traceability and service delivery.',
       features: [
-        'Best farming practices workshops',
-        'Post-harvest handling training',
-        'Pest and disease management',
-        'Sustainable farming methods',
+        'Farmer onboarding and data-driven traceability',
+        'Consistent engagement across communities',
+        'Support embedded within our purchasing network',
       ],
       color: 'from-brand to-cocoa-900',
     },
     {
-      icon: DollarSign,
-      title: 'Financial Support',
-      description: 'Access to financial programs helping farmers invest in their farms and improve productivity.',
+      icon: Heart,
+      title: 'Women & Youth Empowerment',
+      description:
+        'We strengthen Village Savings and Loan Associations (VSLAs) and targeted Income-Generating Activities (IGAs) to support economic resilience.',
       features: [
-        'Seasonal credit facilities',
-        'Input financing programs',
-        'Flexible repayment terms',
-        'Financial literacy training',
+        'VSLA formation and strengthening',
+        'Targeted IGAs for women and youth',
+        'Household financial resilience and inclusion',
       ],
       color: 'from-cocoa-700 to-cocoa-950',
     },
     {
-      icon: BarChart,
-      title: 'Market Intelligence',
-      description: 'Stay informed with regular updates on cocoa market trends, prices, and industry developments.',
+      icon: Leaf,
+      title: 'Sustainability & Safeguarding',
+      description:
+        'We collaborate with global buyers to drive sustainability initiatives, implement CLMRS, and promote climate-resilient livelihoods in our operational communities.',
       features: [
-        'Daily COCOBOD price updates',
-        'Market trend analysis',
-        'Export demand forecasts',
-        'Industry news and insights',
+        'CLMRS implementation and remediation support',
+        'Agroforestry initiatives for climate resilience',
+        'Capacity building on social & environmental best practices',
       ],
       color: 'from-brand-hover to-brand-deep',
     },
@@ -114,7 +125,7 @@ export function Services() {
           transition={{ duration: 1.5 }}
         >
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1618743572100-a3933e759dd7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXJlaG91c2UlMjBhZ3JpY3VsdHVyZXxlbnwxfHx8fDE3NjM4MTUwMzJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+            src="/kumasi.jpg"
             alt="Warehouse"
             className="w-full h-full object-cover"
           />
@@ -122,7 +133,7 @@ export function Services() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(26,17,13,0.88), rgba(45,33,28,0.4) 45%, transparent 60%), linear-gradient(to left, rgba(93,168,198,0.45), rgba(93,168,198,0) 55%)',
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(45,33,28,0.82), rgba(45,33,28,0) 50%)',
               backdropFilter: 'blur(1px)',
             }}
           />
@@ -175,7 +186,7 @@ export function Services() {
           >
             <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">What We Offer</h2>
             <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
-              End-to-end services supporting cocoa farmers and ensuring premium quality
+              Traceable cocoa sourcing, quality compliance, efficient delivery, farmer engagement, community empowerment, and sustainability
             </p>
           </motion.div>
 
@@ -354,7 +365,10 @@ export function Services() {
             <p className="text-cocoa-700 text-xl mb-10">
               Join our network of satisfied farmers and experience the Adikanfo difference.
             </p>
-            <Link to="/contact">
+            <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button size="lg" className="bg-gradient-to-r from-brand to-brand-deep hover:from-brand-hover hover:to-brand-deep shadow-card-hover px-8 py-6 text-lg text-white">
                   Contact Us Today

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { CheckCircle, Shield, TrendingUp, Users, Award, Leaf, Clock, Globe, Quote } from 'lucide-react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { AnimatedCounter } from './AnimatedCounter';
 import {
   Carousel,
@@ -17,10 +17,20 @@ import { MarketInsightsWidget } from './MarketInsightsWidget';
 
 export function Home() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
-  const heroImages = Array.from({ length: 5 }, (_, index) => ({
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
+  const heroImages = Array.from({ length: 6 }, (_, index) => ({
     src: `/carousel-${index + 1}.jpg`,
     alt: `Adikanfo Commodities hero slide ${index + 1}`,
   }));
+
+  const heroCaptions = [
+    'Driving innovation and excellence for quality service delivery.',
+    'Strengthening regional operations; closer to our farmers and empowering productivity.',
+    'Empowering women in cocoa; nurturing livelihoods and supporting communities.',
+    'Dedicated hands cultivating quality from the ground up.',
+    'Preserving quality through tradition to meet global standards.',
+    'Investing in tomorrow’s harvest for stronger, more resilient cocoa farms.',
+  ];
 
   useEffect(() => {
     if (!carouselApi) return;
@@ -30,26 +40,52 @@ export function Home() {
     return () => clearInterval(interval);
   }, [carouselApi]);
 
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const updateActive = () => {
+      setActiveHeroSlide(carouselApi.selectedScrollSnap());
+    };
+
+    updateActive();
+    carouselApi.on('select', updateActive);
+    carouselApi.on('reInit', updateActive);
+
+    return () => {
+      carouselApi.off('select', updateActive);
+      carouselApi.off('reInit', updateActive);
+    };
+  }, [carouselApi]);
+
   const features = [
     {
       icon: Shield,
-      title: 'COCOBOD Licensed',
-      description: 'Officially licensed under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)) with full regulatory compliance and a registered member of WORLD COCOA FOUNDATION (WCF) and LICENSED COCOA BUYERS ASSOCIATION OF GHANA (LICOBAG)',
+      title: 'License',
+      description:
+        'Officially Registered under the Ghana’s Company’s Act 1961, Licensed by Ghana Cocoa Board’s law  with full regulatory compliance, a Member of the Licensed Cocoa Buyers Association of Ghana (LICOBAG) and a member of the World Cocoa Foundation (WCF).',
     },
     {
       icon: Users,
-      title: 'Farmer Partnership',
-      description: 'Empowering over 3,000 smallholder farmers across Ghana with fair pricing',
+      title: 'Stakeholder Partnerships',
+      description: '29,000+ farmers network in over 4500 communities across 36 operational districts in Ghana. Partnerships with, local processors, Agri-Input dealers, transporters, international and local financial service providers among others along the cocoa value chain.',
     },
     {
       icon: TrendingUp,
-      title: 'Quality Excellence',
-      description: 'Premium grade cocoa beans meeting international quality standards',
+      title: 'Sustained Growth',
+      description:
+        'Operating with speed, precision and discipline. One of the Highest performing indigenous LBCs. Upward growth trajectory with a high purchase of 21,000 tons of quality Cocoa.',
+    },
+    {
+      icon: Leaf,
+      title: 'Sustainable Sourcing',
+      description:
+        'Committed to Best sustainable practices to ensure sustainable growth of the cocoa industry focusing on environmental protection and conservation, economic empowerment of farmers and farming communities and championing gender and social inclusion as well as child protection and Fair labor practices.',
     },
     {
       icon: CheckCircle,
-      title: 'Reliable & Transparent',
-      description: 'Immediate payments, efficient operations, and complete transparency',
+      title: 'Quality & Compliance',
+      description:
+        'Adherence to Ghana’s premium quality control and traceability standards.\nRainforest Alliance and fairtrade certified.\nCompliance to local and international standards.',
     },
   ];
 
@@ -82,13 +118,15 @@ export function Home() {
     { name: 'Partner 2', image: '/partner2.png' },
     { name: 'Partner 3', image: '/partner3.png' },
     { name: 'Partner 4', image: '/partner4.png' },
+    { name: 'Partner 5', image: '/partner5.svg' },
+    { name: 'Partner 6', image: '/partner6.png' },
   ];
 
   const stats = [
-    { value: 12, label: 'Years of Excellence', suffix: '+' },
-    { value: 3000, label: 'Farmers Partnered', suffix: '+' },
-    { value: 15000, label: 'Tons Processed/Year', suffix: '+' },
-    { value: 6, label: 'Regions of Operation', suffix: '+' },
+    { value: 10, label: 'Years of Excellence', suffix: '' },
+    { value: 2900, label: 'Farmers Partnered', suffix: '+' },
+    { value: 18000, label: 'Tonnage Average', suffix: '+' },
+    { value: 36, label: 'Operational Districts', suffix: '' },
   ];
 
   const values = [
@@ -141,10 +179,11 @@ export function Home() {
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(93,168,198,0.55), rgba(93,168,198,0) 50%)',
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(45,33,28,0.82), rgba(45,33,28,0) 50%)',
               backdropFilter: 'blur(1px)',
             }}
           ></div>
+         
         </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -155,14 +194,14 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <motion.div
-                className="inline-block mb-4 px-4 py-2 bg-brand-muted backdrop-blur-sm rounded-full border border-brand/35"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="text-white text-sm">Licensed by COCOBOD Ghana</span>
-              </motion.div>
+              {/* <motion.div
+              className="inline-block mb-4 px-4 py-2 bg-brand-muted backdrop-blur-sm rounded-full border border-brand/35"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="text-white text-sm">Licensed by COCOBOD Ghana</span>
+            </motion.div> */}
             </motion.div>
 
             <motion.h1
@@ -180,7 +219,18 @@ export function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Ghana's trusted partner in premium cocoa procurement. Empowering farmers, ensuring quality, delivering excellence.
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={activeHeroSlide}
+                  className="block"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35 }}
+                >
+                  {heroCaptions[activeHeroSlide] ?? heroCaptions[0]}
+                </motion.span>
+              </AnimatePresence>
             </motion.p>
 
             <motion.div
@@ -205,8 +255,8 @@ export function Home() {
               </Link>
             </motion.div>
             </div>
-            <div className="lg:col-span-5 w-full max-w-md lg:max-w-none lg:justify-self-end">
-              <MarketInsightsWidget />
+            <div className="lg:col-span-5 w-full max-w-md lg:max-w-sm lg:justify-self-end">
+              <MarketInsightsWidget compact />
             </div>
           </div>
         </div>
@@ -229,8 +279,8 @@ export function Home() {
 
       {/* Stats Section with Animated Counters */}
       <section
-        className="text-white py-20"
-        style={{ background: 'linear-gradient(90deg, #5da8c6 0%, #3d86a3 100%)' }}
+        className="text-white py-14"
+        style={{ background: 'linear-gradient(90deg, #31717E 0%, #155068 100%)' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -254,10 +304,10 @@ export function Home() {
       </section>
 
       {/* Features Section with Stagger Animation */}
-      <section className="py-24 bg-gradient-to-b from-cream to-cream-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gradient-to-b from-cream to-cream-dark">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-2">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -269,11 +319,11 @@ export function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-card p-8 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-cocoa-200"
+                className="bg-card p-6 rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-cocoa-200"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -281,11 +331,11 @@ export function Home() {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <motion.div
-                  className="w-16 h-16 bg-gradient-to-br from-brand to-brand-deep rounded-xl flex items-center justify-center mb-6 shadow-card"
+                  className="w-14 h-14 bg-gradient-to-br from-brand to-brand-deep rounded-xl flex items-center justify-center mb-4 shadow-card"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <feature.icon className="text-white" size={32} />
+                  <feature.icon className="text-white" size={28} />
                 </motion.div>
                 <h3 className="mb-3 text-cocoa-900">{feature.title}</h3>
                 <p className="text-cocoa-700 text-sm leading-relaxed">{feature.description}</p>
@@ -315,12 +365,10 @@ export function Home() {
               </motion.div>
               <h2 className="text-4xl md:text-5xl mb-6 text-cocoa-900">Empowering Ghana's Cocoa Farmers</h2>
               <p className="text-cocoa-700 mb-4 text-lg leading-relaxed">
-                Adikanfo Commodities is a fully licensed cocoa buying company operating under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)) and strict regulations of WORLD COCOA FOUNDATION (WCF) and LICENSED COCOA BUYERS ASSOCIATION OF GHANA (LICOBAG). 
-                We are committed to creating sustainable value throughout the cocoa supply chain.
+                Adikanfo Commodities Limited (ACL) is a proponent of sustainable cocoa production through the promotion of responsible environmental stewardship and the advancement of community wellbeing as a part of our operations.
               </p>
               <p className="text-cocoa-700 mb-6 text-lg leading-relaxed">
-                Our mission is to provide farmers with competitive prices, reliable service, and the support they 
-                need to thrive. We combine years of industry expertise with modern practices to ensure quality and fairness.
+               Our mission is to responsibly source and deliver high-quality cocoa through transparent practices that empower farmers, protect the environment and promote community well-being and shared prosperity.
               </p>
 
               {/* Value Props */}
@@ -379,7 +427,7 @@ export function Home() {
                   transition={{ duration: 0.3 }}
                 >
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1634303316622-33b4d64f1f65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMGJlYW5zJTIwY2hvY29sYXRlfGVufDF8fHx8MTc2MzgxNTAzMXww&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/cocoa-beans.jpg"
                     alt="Cocoa beans"
                     className="w-full h-64 object-cover rounded-2xl shadow-xl"
                   />
@@ -390,7 +438,7 @@ export function Home() {
                   className="mt-8"
                 >
                   <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1740741703636-1680d0c0f0a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwZmFybWVycyUyMGFncmljdWx0dXJlfGVufDF8fHx8MTc2MzgxNTAzMnww&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="/cocoa-plant.jpg"
                     alt="Farmers"
                     className="w-full h-64 object-cover rounded-2xl shadow-xl"
                   />
@@ -402,7 +450,7 @@ export function Home() {
       </section>
 
       {/* Farmers Testimonials */}
-      <section className="py-24 bg-gradient-to-b from-cream-dark to-cream">
+      {/* <section className="py-24 bg-gradient-to-b from-cream-dark to-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -447,7 +495,7 @@ export function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Strategic Partners */}
       <section className="py-24 bg-cream">
@@ -465,24 +513,27 @@ export function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                className="p-6 rounded-2xl border border-cocoa-200 bg-gradient-to-br from-card to-cream-dark flex items-center justify-center shadow-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <ImageWithFallback
-                  src={partner.image}
-                  alt={partner.name}
-                  className="max-h-16 object-contain"
-                />
-              </motion.div>
-            ))}
+          <div className="partner-ticker" aria-label="Strategic partners">
+            <div className="partner-ticker-track">
+              {partners.map((partner) => (
+                <div key={partner.name} className="partner-ticker-item">
+                  <ImageWithFallback
+                    src={partner.image}
+                    alt={partner.name}
+                    className="partner-ticker-logo"
+                  />
+                </div>
+              ))}
+              {partners.map((partner) => (
+                <div key={`${partner.name}-dup`} className="partner-ticker-item" aria-hidden="true">
+                  <ImageWithFallback
+                    src={partner.image}
+                    alt=""
+                    className="partner-ticker-logo"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

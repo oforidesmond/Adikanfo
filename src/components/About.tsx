@@ -1,78 +1,119 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Award, Target, Heart, Globe, Handshake, TrendingUp, Facebook, Linkedin, Twitter } from 'lucide-react';
+import {
+  Award,
+  Facebook,
+  Handshake,
+  Heart,
+  Leaf,
+  Lightbulb,
+  Linkedin,
+  Mail,
+  MinusCircle,
+  Phone,
+  Scale,
+  ShieldCheck,
+  Target,
+  TrendingUp,
+  Twitter,
+  Users,
+  Zap,
+} from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function About() {
   const values = [
     {
-      icon: Heart,
+      icon: Zap,
+      title: 'Efficiency',
+      description:
+        'We operate with speed, precision and discipline along our supply chain. We ensure cocoa beans are purchased, graded, transported, and delivered in a timely manner to reduce post-harvest losses, improve turnaround times and maintain reliable performance to our partners.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Accountability',
+      description:
+        'We safeguard every bag of cocoa and take ownership of our actions, decisions, and outcomes. This, we do to ensure transparency, reliability, and trust across our operations with strict adherence to regulatory and contractual obligations.',
+    },
+    {
+      icon: Scale,
       title: 'Integrity',
-      description: 'We conduct business with honesty, transparency, and ethical practices in all our dealings with farmers and partners.',
+      description:
+        'We uphold honesty and fairness in all our operations to build trust and confidence with our stakeholders. Our decisions are a reflection of ethical principles rather than short-term gains.',
     },
     {
-      icon: Target,
-      title: 'Excellence',
-      description: 'We maintain the highest quality standards in cocoa procurement, processing, and customer service delivery.',
+      icon: Lightbulb,
+      title: 'Innovation',
+      description:
+        'We foster a culture of creativity, continuous improvement, and forward-thinking solutions to keep us competitive and relevant in a rapidly changing market.',
     },
     {
-      icon: Globe,
-      title: 'Sustainability',
-      description: 'Committed to environmentally responsible practices and sustainable farming that protects our future.',
+      icon: Heart,
+      title: 'Commitment',
+      description: 'We build enduring relationships with farmers and partners based on trust, loyalty, and mutual success.',
+    },
+    {
+      icon: MinusCircle,
+      title: 'Neutrality',
+      description:
+        'We conduct our business impartially, ensuring equal opportunity and non-discriminatory purchasing practices for all farmers and stakeholders.',
+    },
+    {
+      icon: Users,
+      title: 'Inclusive Growth',
+      description:
+        'We commit to expand our business in ways that benefits all our stakeholders including farmers, employees and communities. Our success is measured by equity, diversity and shared prosperity.',
     },
     {
       icon: Handshake,
       title: 'Partnership',
-      description: 'Building long-term relationships based on mutual respect, trust, and fair trade principles.',
+      description:
+        'We thrive on long term partnerships by working closely with stakeholders including partners and regulatory authorities to promote resilience, transparency, and sustainable value for all.',
+    },
+    {
+      icon: Leaf,
+      title: 'Responsibility',
+      description:
+        'Our operations are conducted with a strong sense of responsibility toward our employees, partners, communities, and the environment. We maintain safe working conditions, and implement practices that protect natural resources, reduce environmental impact, and support sustainable operations across our supply chain.',
     },
   ];
 
   const timeline = [
     {
-      year: '2013',
-      title: 'Foundation',
-      description: 'Adikanfo Commodities was established with a vision to transform cocoa trading in Ghana.',
-    },
-    {
       year: '2016',
-      title: 'Operational License',
-      description: 'Obtained operational license to purchase cocoa in Ghana on October 6, 2016, under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6)), marking a major milestone.',
+      title: 'Foundation & Licensing',
+      description: 'Licensed by the Ghana Cocoa Board on October 3, 2016, marking the start of ACL’s operations as a Licensed Buying Company.',
     },
     {
-      year: '2018',
-      title: 'Expansion',
-      description: 'Expanded operations to cover major cocoa-growing regions across Ghana.',
+      year: '2017',
+      title: 'Early Operations',
+      description: 'Began operations with 4,303.31 tonnes, building a strong foundation through disciplined sourcing.',
     },
     {
-      year: '2020',
-      title: 'Digital Innovation',
-      description: 'Launched digital payment systems for faster, more transparent farmer payments.',
+      year: '2019',
+      title: 'Growth & Expansion',
+      description: 'Expanded across key cocoa-growing regions, strengthening farmer relationships and operational reach.',
     },
     {
-      year: '2023',
-      title: 'Sustainability Initiative',
-      description: 'Launched comprehensive farmer training and sustainability programs.',
+      year: '2022',
+      title: 'Operational Excellence',
+      description: 'Achieved steady growth through efficiency, strong governance, and consistent quality delivery.',
     },
     {
-      year: '2025',
-      title: 'Industry Leader',
-      description: 'Recognized as one of Ghana\'s leading licensed cocoa buying companies.',
+      year: '2024/2025',
+      title: 'Market Position',
+      description: 'Reached a peak of 21,214 tonnes and secured a 3.17% market share.',
+    },
+    {
+      year: 'Today',
+      title: 'Sustainability & Industry Commitment',
+      description: 'Promoting sustainable cocoa production through ESG practices as a member of LICOBAG and the World Cocoa Foundation.',
     },
   ];
 
   const team = [
-    {
-      name: 'Theophilus Agyare Asare',
-      role: 'Co-Founder and Managing Director',
-      image: '/number1.jpg',
-      socials: {
-        facebook: 'https://facebook.com',
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com',
-      },
-    },
-    {
+      {
       name: 'Emmanuel Yorke',
-      role: 'Co-Founder and Deputy Managing Director',
+      role: 'Managing Director',
       image: '/number2.jpg',
       socials: {
         facebook: 'https://facebook.com',
@@ -81,8 +122,18 @@ export function About() {
       },
     },
     {
-      name: 'Charles Ken Adu Boahen',
-      role: 'IT Manager',
+      name: 'Kwadwo Agyapong Asare',
+      role: 'Deputy Managing Director',
+      image: '/number1.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Charles Adu Boahen',
+      role: 'Information Systems Manager',
       image: '/number3.jpg',
       socials: {
         facebook: 'https://facebook.com',
@@ -102,7 +153,7 @@ export function About() {
     },
     {
       name: 'Vida Ayorkor Laryea',
-      role: 'HR Manager',
+      role: 'Human Resource Manager',
       image: '/number5.jpg',
       socials: {
         facebook: 'https://facebook.com',
@@ -112,7 +163,7 @@ export function About() {
     },
     {
       name: 'Theresa Amaning',
-      role: 'Accounts Manager',
+      role: 'Deputy Finance Manager',
       image: '/number6.jpg',
       socials: {
         facebook: 'https://facebook.com',
@@ -121,8 +172,8 @@ export function About() {
       },
     },
     {
-      name: 'Aboagyewaa Ceasar-Wood',
-      role: 'Research Manager',
+      name: 'Aboagyewaa Caezar-Wood',
+      role: 'Marketing & Communications Manager',
       image: '/number7.jpg',
       socials: {
         facebook: 'https://facebook.com',
@@ -131,8 +182,8 @@ export function About() {
       },
     },
     {
-      name: 'Daniel Osei Nkrumah',
-      role: 'Sustainability Manager',
+      name: 'Bampo Koranteng',
+      role: 'Risk & Regulatory Compliance Manager',
       image: '/number8.jpg',
       socials: {
         facebook: 'https://facebook.com',
@@ -153,15 +204,15 @@ export function About() {
           transition={{ duration: 1.5 }}
         >
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1696343782507-a8188a2e4865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnaGFuYSUyMGxhbmRzY2FwZSUyMGZpZWxkc3xlbnwxfHx8fDE3NjM4MTUyOTd8MA&ixlib=rb-4.1.0&q=80&w=1080"
+            src="/about-us-hero.jpg"
             alt="Ghana landscape"
-            className="w-full h-full object-cover"
+            className="w-full h-[40rem] object-cover"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(26,17,13,0.88), rgba(45,33,28,0.4) 45%, transparent 60%), linear-gradient(to left, rgba(93,168,198,0.45), rgba(93,168,198,0) 55%)',
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(45,33,28,0.82), rgba(45,33,28,0) 50%)',
               backdropFilter: 'blur(1px)',
             }}
           />
@@ -198,7 +249,7 @@ export function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Building Ghana's cocoa industry, one farmer at a time
+            A Decade of Growth, Rooted in Heritage, Sustaining the Future.
           </motion.p>
         </div>
       </section>
@@ -222,18 +273,17 @@ export function About() {
 
               <h2 className="text-4xl md:text-5xl mb-6 text-cocoa-900">Our Journey</h2>
               <p className="text-cocoa-700 mb-4 text-lg leading-relaxed">
-                Founded in 2013, Adikanfo Commodities emerged with a clear mission: to create a transparent, 
-                fair, and efficient cocoa buying system that benefits both farmers and the industry at large.
+               Adikanfo Commodities Ltd (ACL), an indigenous Ghanaian-owned Licensed Buying Company, was officially licensed by the Ghana Cocoa Board in October 2016 to operate within Ghana’s internal cocoa market.
               </p>
               <p className="text-cocoa-700 mb-4 text-lg leading-relaxed">
-                As a fully licensed buying company, we have built a 
-                reputation for integrity, reliability, and excellence. Our name "Adikanfo" reflects our 
-                commitment to being pioneers in ethical cocoa trading.
+                Since its inception, ACL has grown into a reliable and respected industry player, driven by strong governance, disciplined operations, and effective stakeholder relationships. The company specializes in sourcing high-quality, well-fermented cocoa beans from farmers for delivery to the Cocoa Marketing Company (CMC) Ltd for export.
               </p>
               <p className="text-cocoa-700 text-lg leading-relaxed">
-                Today, we work with over 3,000 smallholder farmers across Ghana's cocoa-growing regions, 
-                processing thousands of tons of premium cocoa annually while maintaining the highest standards 
-                of quality and sustainability.
+                From an initial purchase of 4,303.31 tonnes, ACL has expanded significantly, reaching a peak of 21,214 tonnes and securing a 3.17% market share in the 2024/2025 crop season.
+              </p>
+              <br />
+              <p className="text-cocoa-700 text-lg leading-relaxed">
+                Our name "Adikanfo" reflects our commitment to being pioneers in ethical cocoa trading.
               </p>
             </motion.div>
 
@@ -248,8 +298,8 @@ export function About() {
                 transition={{ duration: 0.3 }}
               >
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1634303316622-33b4d64f1f65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2NvYSUyMGJlYW5zJTIwY2hvY29sYXRlfGVufDF8fHx8MTc2MzgxNTAzMXww&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Cocoa beans"
+                  src="/our-journey.png"
+                  alt="Our Journey"
                   className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
                 />
               </motion.div>
@@ -268,14 +318,15 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ y: -5, shadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+              whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
             >
               <div className="w-16 h-16 bg-gradient-to-br from-brand to-brand-deep rounded-xl flex items-center justify-center mb-6 shadow-card">
                 <Target className="text-white" size={32} />
               </div>
               <h2 className="text-3xl mb-4 text-cocoa-900">Our Mission</h2>
               <p className="text-cocoa-700 text-lg leading-relaxed">
-                Our primary mission is to purchase quality cocoa beans from the farmers and evacuate same to Ghana Cocoa Board (COCOBOD) and pay adequate compensation to the farmers
+                To responsibly source and deliver high-quality cocoa through transparent practices that empower
+                farmers, protect the environment and promote community well-being and shared prosperity.
               </p>
             </motion.div>
 
@@ -285,14 +336,15 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -5, shadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
+              whileHover={{ y: -5, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)' }}
             >
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
                 <TrendingUp className="text-white" size={32} />
               </div>
               <h2 className="text-3xl mb-4">Our Vision</h2>
               <p className="text-cream/85 text-lg leading-relaxed">
-                Our vision is to be the  most  efficient and profitable licenced cocoa buying company in Ghana
+                To be the most efficient licensed buying company that demonstrates excellence in sustainable
+                sourcing.
               </p>
             </motion.div>
           </div>
@@ -314,7 +366,7 @@ export function About() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -415,51 +467,22 @@ export function About() {
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                className="bg-gradient-to-br from-cream-dark to-card p-6 rounded-2xl border border-cocoa-200 text-center shadow-card"
+                className="group relative h-96 overflow-hidden rounded-2xl border border-cocoa-200 shadow-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10, shadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
+                whileHover={{ y: -10, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1)' }}
               >
-                <div className="w-full h-64 mb-6 overflow-hidden rounded-xl">
-                  <ImageWithFallback
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-cocoa-900">{member.name}</h3>
-                <p className="text-brand font-medium">{member.role}</p>
-
-                <div className="flex items-center justify-center gap-4 mt-6">
-                  <a
-                    href={member.socials.facebook}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${member.name} Facebook`}
-                    className="p-2 rounded-full bg-cocoa-100 text-brand hover:bg-brand-muted transition"
-                  >
-                    <Facebook size={18} />
-                  </a>
-                  <a
-                    href={member.socials.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${member.name} LinkedIn`}
-                    className="p-2 rounded-full bg-cocoa-100 text-brand hover:bg-brand-muted transition"
-                  >
-                    <Linkedin size={18} />
-                  </a>
-                  <a
-                    href={member.socials.twitter}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${member.name} Twitter`}
-                    className="p-2 rounded-full bg-cocoa-100 text-brand hover:bg-brand-muted transition"
-                  >
-                    <Twitter size={18} />
-                  </a>
+                <ImageWithFallback
+                  src={member.image}
+                  alt={member.name}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cocoa-950/90 via-cocoa-950/35 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-left">
+                  <h3 className="text-lg font-semibold text-white leading-tight">{member.name}</h3>
+                  <p className="mt-1 text-sm text-cream/85">{member.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -484,7 +507,10 @@ export function About() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: 'COCOBOD Licensed', desc: 'Officially licensed under Ghana Cocoa Board Law 1984 (P.N.D.C Law 81 S.4(6))' },
+              { title: 'Incorporated Enterprise', desc: 'Officially registered under the Ghana Companies Act, 1961 (Act 179).' },
+              { title: 'COCOBOD Licensed', desc: 'Fully compliant with Ghana Cocoa Board regulations and operational standards.' },
+              { title: 'LICOBAG Member', desc: 'Proud member of the Licensed Cocoa Buyers Association of Ghana.' },
+              { title: 'WCF Affiliate', desc: 'Active member of the World Cocoa Foundation, committed to global cocoa sustainability.' },
               { title: 'Quality Certified', desc: 'International Quality Standards' },
               { title: 'Fair Trade', desc: 'Committed to Fair Trade Practices' },
             ].map((cert, index) => (

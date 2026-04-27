@@ -5,9 +5,9 @@
 /* Brand: trust & action #5da8c6 · Atmosphere: cream + cocoa */
 :root {
   --font-size: 16px;
-  --brand: #5da8c6;
-  --brand-hover: #4a94b8;
-  --brand-deep: #3d86a3;
+  --brand: #31717E;
+  --brand-hover: #3680a4;
+  --brand-deep: #155068;
   --brand-foreground: #ffffff;
   --brand-muted: rgb(93 168 198 / 0.18);
   --cream: #faf7f2;
@@ -148,6 +148,105 @@
 
   --shadow-card: 0 4px 24px -4px rgb(45 31 24 / 0.08), 0 0 0 1px rgb(45 31 24 / 0.06);
   --shadow-card-hover: 0 14px 40px -10px rgb(45 31 24 / 0.14), 0 0 0 1px rgb(45 31 24 / 0.08);
+}
+
+.partner-ticker {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.partner-ticker::before,
+.partner-ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.partner-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, var(--cream), rgba(250, 247, 242, 0));
+}
+
+.partner-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, var(--cream), rgba(250, 247, 242, 0));
+}
+
+.partner-ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+  will-change: transform;
+  animation: partner-ticker-scroll 32s linear infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.partner-ticker:hover .partner-ticker-track {
+  animation-play-state: paused;
+}
+
+.partner-ticker-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  min-width: 180px;
+  padding: 1rem 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgb(196 181 168 / 0.75);
+  background: linear-gradient(135deg, var(--card), var(--cream-dark));
+  box-shadow: 0 12px 30px -18px rgba(45, 33, 28, 0.35);
+}
+
+.partner-ticker-logo {
+  max-height: 56px;
+  max-width: 160px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: saturate(0.98);
+}
+
+@keyframes partner-ticker-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-ticker::before,
+  .partner-ticker::after {
+    width: 44px;
+  }
+
+  .partner-ticker-item {
+    height: 76px;
+    min-width: 150px;
+    padding: 0.85rem 1rem;
+  }
+
+  .partner-ticker-logo {
+    max-height: 48px;
+    max-width: 140px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-ticker-track {
+    animation: none;
+    transform: none;
+  }
 }
 
 @layer base {

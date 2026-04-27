@@ -50,7 +50,21 @@ function buildMonthlyPrices(): MonthlyPrice[] {
   });
 }
 
-export const monthlyCocoaPrices = buildMonthlyPrices();
+// export const monthlyCocoaPrices = buildMonthlyPrices();
+export const monthlyCocoaPrices: MonthlyPrice[] = [
+  { month: 'May 2025', shortLabel: 'May', price: 2763 },
+  { month: 'Jun 2025', shortLabel: 'Jun', price: 2842 },
+  { month: 'Jul 2025', shortLabel: 'Jul', price: 2789 },
+  { month: 'Aug 2025', shortLabel: 'Aug', price: 2915 },
+  { month: 'Sep 2025', shortLabel: 'Sep', price: 2856 },
+  { month: 'Oct 2025', shortLabel: 'Oct', price: 2987 },
+  { month: 'Nov 2025', shortLabel: 'Nov', price: 2923 },
+  { month: 'Dec 2025', shortLabel: 'Dec', price: 3054 },
+  { month: 'Jan 2026', shortLabel: 'Jan', price: 2991 },
+  { month: 'Feb 2026', shortLabel: 'Feb', price: 3112 },
+  { month: 'Mar 2026', shortLabel: 'Mar', price: 3048 },
+  { month: 'Apr 2026', shortLabel: 'Apr', price: 2587 },
+];
 
 export type RegionProduction = { region: string; volumeMt: number };
 
@@ -62,18 +76,27 @@ const REGION_BASE: { region: string; base: number }[] = [
   { region: 'Bono & Ahafo', base: 84_000 },
 ];
 
-export const topRegionProduction: RegionProduction[] = REGION_BASE.map(({ region, base }) => {
-  const jitter = 0.92 + regionRng() * 0.16;
-  return { region, volumeMt: Math.round(base * jitter / 1000) * 1000 };
-}).sort((a, b) => b.volumeMt - a.volumeMt);
+// export const topRegionProduction: RegionProduction[] = REGION_BASE.map(({ region, base }) => {
+//   const jitter = 0.92 + regionRng() * 0.16;
+//   return { region, volumeMt: Math.round(base * jitter / 1000) * 1000 };
+// }).sort((a, b) => b.volumeMt - a.volumeMt);
+export const topRegionProduction: RegionProduction[] = [
+  { region: 'Western', volumeMt: 324000 },
+  { region: 'Ashanti', volumeMt: 156000 },
+  { region: 'Eastern', volumeMt: 128000 },
+  { region: 'Central', volumeMt: 99000 },
+  { region: 'Bono & Ahafo', volumeMt: 87000 },
+];
 
 const lastPrice = monthlyCocoaPrices[monthlyCocoaPrices.length - 1]!.price;
 const prevPrice = monthlyCocoaPrices[monthlyCocoaPrices.length - 2]!.price;
 const priceChangePct = ((lastPrice - prevPrice) / prevPrice) * 100;
 
-const productionRng = createRng(SEED + 2);
-export const ghanaProductionMt = Math.round((682_000 + productionRng() * 24_000) / 1000) * 1000;
-export const exportVolumeMt = Math.round((ghanaProductionMt * (0.78 + productionRng() * 0.06)) / 1000) * 1000;
+// const productionRng = createRng(SEED + 2);
+// export const ghanaProductionMt = Math.round((682_000 + productionRng() * 24_000) / 1000) * 1000;
+// export const exportVolumeMt = Math.round((ghanaProductionMt * (0.78 + productionRng() * 0.06)) / 1000) * 1000;
+export const ghanaProductionMt = 650000;
+export const exportVolumeMt = 548000;
 
 export const marketKpis = {
   globalCocoaUsdPerMt: lastPrice,
@@ -122,9 +145,9 @@ export const industryNews: IndustryNewsItem[] = [
 ];
 
 export function formatUsdMt(n: number) {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-GH', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'GHS',
     maximumFractionDigits: 0,
   }).format(n);
 }

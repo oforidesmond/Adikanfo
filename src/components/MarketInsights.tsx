@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { Globe2, Newspaper, Package, Percent, Sprout, TrendingUp } from 'lucide-react';
+import { Globe2, Newspaper, Package, Percent, Sprout, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from './ui/button';
 import {
@@ -22,12 +22,76 @@ import {
   topRegionProduction,
 } from '../data/marketInsightsData';
 
+const farmerNetworkRows = [
+  {
+    region: 'Ashanti',
+    societies: 373,
+    male: 4843,
+    female: 2317,
+    total: 7160,
+    mappedFarms: 10133,
+    mappedSizeHa: 12082.51,
+  },
+  {
+    region: 'Brong-Ahafo',
+    societies: 134,
+    male: 1877,
+    female: 868,
+    total: 2745,
+    mappedFarms: 3444,
+    mappedSizeHa: 5158.12,
+  },
+  {
+    region: 'Central',
+    societies: 241,
+    male: 4602,
+    female: 2480,
+    total: 7082,
+    mappedFarms: 11303,
+    mappedSizeHa: 9662.61,
+  },
+  {
+    region: 'Eastern',
+    societies: 371,
+    male: 6580,
+    female: 2955,
+    total: 9535,
+    mappedFarms: 14687,
+    mappedSizeHa: 13510.55,
+  },
+  {
+    region: 'Western',
+    societies: 115,
+    male: 2089,
+    female: 782,
+    total: 2871,
+    mappedFarms: 4310,
+    mappedSizeHa: 5315.35,
+  },
+];
+
+const farmerNetworkTotals = {
+  societies: 1234,
+  male: 19991,
+  female: 9402,
+  total: 29393,
+  mappedFarms: 43877,
+  mappedSizeHa: 45729.15,
+};
+
 const cardMotion = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.45 },
 } as const;
+
+const PRODUCER_PRICE_2025_2026_GHS_PER_BAG = 2587;
+
+const producerPriceTrend = monthlyCocoaPrices.map((p) => ({
+  ...p,
+  price: PRODUCER_PRICE_2025_2026_GHS_PER_BAG,
+}));
 
 function MetricCard({
   icon: Icon,
@@ -74,6 +138,25 @@ function PriceTooltip({
   );
 }
 
+function ProducerPriceTooltip({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: Array<{ value?: number; payload?: { month?: string } }>;
+}) {
+  if (!active || !payload?.length) return null;
+  const v = payload[0]?.value;
+  const m = payload[0]?.payload?.month;
+  if (v == null) return null;
+  return (
+    <div className="rounded-lg border border-cocoa-200 bg-card px-3 py-2 text-xs shadow-xl">
+      <p className="font-medium text-cocoa-900">{m}</p>
+      <p className="font-mono text-cocoa-800">{formatUsdMt(v)} / 64kg bag</p>
+    </div>
+  );
+}
+
 function RegionTooltip({
   active,
   payload,
@@ -111,7 +194,7 @@ export function MarketInsights() {
               Intelligence desk
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-4 tracking-tight">
-              Market insights
+              Resources
             </h1>
             <p className="text-lg text-cream/85 leading-relaxed">
             Get simple updates on cocoa prices, news from Ghana, and the big stories affecting our industry.
@@ -121,9 +204,9 @@ export function MarketInsights() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             <MetricCard
               icon={Globe2}
-              label="Global cocoa price"
+              label="Farm gate price"
               value={formatUsdMt(globalCocoaUsdPerMt)}
-              sub="Benchmark nearby, USD per metric tonne"
+              sub="Per bag of 64kg"
             />
             <MetricCard
               icon={Sprout}
@@ -131,7 +214,7 @@ export function MarketInsights() {
               value={`${formatMt(ghanaProductionMt)} MT`}
               sub="National crop estimate (demo)"
             />
-            <MetricCard
+            {/* <MetricCard
               icon={Package}
               label="Export volume"
               value={`${formatMt(exportVolumeMt)} MT`}
@@ -142,7 +225,7 @@ export function MarketInsights() {
               label="Price change"
               value={`${trendUp ? '+' : ''}${priceChangePct}%`}
               sub={changeLabel}
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -161,28 +244,28 @@ export function MarketInsights() {
                 <TrendingUp className="h-5 w-5" aria-hidden />
               </div>
               <div>
-                <h2 className="text-xl md:text-2xl font-medium text-cocoa-900">Global cocoa price trend</h2>
-                <p className="mt-1 text-sm text-cocoa-600">Last twelve months — sample path between $2,400 and $3,200 / MT</p>
+                <h2 className="text-xl md:text-2xl font-medium text-cocoa-900">Producer price trend</h2>
+                <p className="mt-1 text-sm text-cocoa-600">2025/2026 crop year — GH₵2,587 per 64kg bag</p>
               </div>
             </div>
             <div
               className="h-[280px] w-full sm:h-[320px]"
               role="img"
-              aria-label="Line chart of sample global cocoa prices over the last twelve months"
+              aria-label="Line chart of Ghana cocoa producer price for the 2025/2026 crop year"
             >
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={monthlyCocoaPrices} margin={{ top: 8, right: 12, left: 4, bottom: 8 }}>
+                <LineChart data={producerPriceTrend} margin={{ top: 8, right: 12, left: 4, bottom: 8 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgb(196 181 168 / 0.5)" />
                   <XAxis dataKey="shortLabel" tick={{ fill: '#5c4a3f', fontSize: 12 }} axisLine={false} tickLine={false} />
                   <YAxis
-                    width={56}
+                    width={86}
                     tick={{ fill: '#5c4a3f', fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
-                    tickFormatter={(v) => `$${(v / 1000).toFixed(1)}k`}
-                    domain={['dataMin - 120', 'dataMax + 120']}
+                    tickFormatter={(v) => formatUsdMt(Number(v))}
+                    domain={[2400, 3200]}
                   />
-                  <Tooltip content={<PriceTooltip />} />
+                  <Tooltip content={<ProducerPriceTooltip />} />
                   <Line
                     type="monotone"
                     dataKey="price"
@@ -197,6 +280,112 @@ export function MarketInsights() {
           </motion.div>
 
           <motion.div
+            className="rounded-2xl border border-cocoa-200 bg-card p-6 sm:p-8 shadow-card"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+          >
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div className="flex items-start gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cocoa-100 text-brand">
+                  <Users className="h-5 w-5" aria-hidden />
+                </div>
+                <div>
+                  <h2 className="text-xl md:text-2xl font-medium text-cocoa-900">
+                    Farmer network snapshot
+                  </h2>
+                  <p className="mt-1 text-sm text-cocoa-600">
+                    Statistics by region — societies, farmer counts, mapped farms & mapped hectares
+                  </p>
+                </div>
+              </div>
+
+              <div className="hidden sm:flex flex-wrap justify-end gap-2">
+                <div className="rounded-xl border border-cocoa-200/80 bg-cream px-3 py-2">
+                  <p className="text-[11px] font-medium uppercase tracking-wide text-cocoa-600">Total farmers</p>
+                  <p className="text-sm font-semibold tabular-nums text-cocoa-900">{formatMt(farmerNetworkTotals.total)}</p>
+                </div>
+                <div className="rounded-xl border border-cocoa-200/80 bg-cream px-3 py-2">
+                  <p className="text-[11px] font-medium uppercase tracking-wide text-cocoa-600">Mapped farms</p>
+                  <p className="text-sm font-semibold tabular-nums text-cocoa-900">
+                    {formatMt(farmerNetworkTotals.mappedFarms)}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="-mx-2 overflow-x-auto px-2">
+              <div className="min-w-[860px]">
+                <div className="overflow-hidden rounded-2xl border border-cocoa-200/80">
+                  <table className="w-full border-collapse text-left text-sm">
+                    <thead className="bg-cream">
+                      <tr className="text-xs font-semibold uppercase tracking-wide text-cocoa-700">
+                        <th scope="col" className="px-4 py-3">Region</th>
+                        <th scope="col" className="px-4 py-3 text-right">Societies</th>
+                        <th scope="col" className="px-4 py-3 text-right">Male</th>
+                        <th scope="col" className="px-4 py-3 text-right">Female</th>
+                        <th scope="col" className="px-4 py-3 text-right">Total</th>
+                        <th scope="col" className="px-4 py-3 text-right">Mapped farms</th>
+                        <th scope="col" className="px-4 py-3 text-right">Mapped size (Ha)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-cocoa-200/80 bg-white">
+                      {farmerNetworkRows.map((row) => (
+                        <tr key={row.region} className="hover:bg-cocoa-50/60">
+                          <td className="px-4 py-3 font-medium text-cocoa-900">{row.region}</td>
+                          <td className="px-4 py-3 text-right tabular-nums text-cocoa-800">{formatMt(row.societies)}</td>
+                          <td className="px-4 py-3 text-right tabular-nums text-cocoa-800">{formatMt(row.male)}</td>
+                          <td className="px-4 py-3 text-right tabular-nums text-cocoa-800">{formatMt(row.female)}</td>
+                          <td className="px-4 py-3 text-right tabular-nums font-medium text-cocoa-900">{formatMt(row.total)}</td>
+                          <td className="px-4 py-3 text-right tabular-nums text-cocoa-800">{formatMt(row.mappedFarms)}</td>
+                          <td className="px-4 py-3 text-right tabular-nums text-cocoa-800">
+                            {row.mappedSizeHa.toLocaleString('en-US', {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            })}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                    <tfoot className="bg-cream">
+                      <tr className="text-sm">
+                        <th scope="row" className="px-4 py-3 font-semibold text-cocoa-900">Total</th>
+                        <td className="px-4 py-3 text-right tabular-nums font-semibold text-cocoa-900">
+                          {formatMt(farmerNetworkTotals.societies)}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums font-semibold text-cocoa-900">
+                          {formatMt(farmerNetworkTotals.male)}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums font-semibold text-cocoa-900">
+                          {formatMt(farmerNetworkTotals.female)}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums font-semibold text-cocoa-900">
+                          {formatMt(farmerNetworkTotals.total)}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums font-semibold text-cocoa-900">
+                          {formatMt(farmerNetworkTotals.mappedFarms)}
+                        </td>
+                        <td className="px-4 py-3 text-right tabular-nums font-semibold text-cocoa-900">
+                          {farmerNetworkTotals.mappedSizeHa.toLocaleString('en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })}
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-cocoa-600">
+              <p>Demo dataset for design preview.</p>
+              <p className="tabular-nums">Last updated: Apr 2026</p>
+            </div>
+          </motion.div>
+
+          {/* <motion.div
             className="rounded-2xl border border-cocoa-200 bg-card p-6 sm:p-8 shadow-card"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,9 +427,9 @@ export function MarketInsights() {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-          </motion.div>
+          </motion.div>*/}
         </div>
-      </section>
+      </section> 
 
       <section className="border-t border-cocoa-200/80 bg-cream pb-20">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

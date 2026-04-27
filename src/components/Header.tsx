@@ -21,7 +21,7 @@ export function Header() {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/market-insights', label: 'Market Insights' },
+    { path: '/market-insights', label: 'Resources' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
   ];
@@ -45,17 +45,17 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-6">
             <motion.img
               src="/index.png"
               alt="Adikanfo Commodities logo"
-              className="w-12 h-12 object-contain"
+              className="w-30 h-12 object-cover"
               whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             />
-            <div className="flex flex-col">
+            <div className="hidden lg:flex flex-col">
               <span className="text-cocoa-900">Adikanfo Commodities Ltd.</span>
-              <span className="text-xs text-brand">Farmers Friend</span>
+              {/* <span className="text-xs text-brand">Farmers Friend</span> */}
             </div>
           </Link>
 

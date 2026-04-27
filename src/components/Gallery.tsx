@@ -214,7 +214,7 @@ export function Gallery() {
       <section className="relative min-h-[480px] md:min-h-[520px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1634303316622-33b4d64f1f65?auto=format&fit=crop&w=2000&q=80"
+            src="/gallery-cocoa.jpeg"
             alt="Premium cocoa beans — from harvest to traceable supply"
             className="w-full h-full object-cover scale-105"
           />
@@ -222,7 +222,8 @@ export function Gallery() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(105deg, rgba(26,17,13,0.92) 0%, rgba(45,33,28,0.75) 38%, rgba(93,168,198,0.22) 100%), linear-gradient(to top, rgba(26,17,13,0.85) 0%, transparent 55%)',
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(45,33,28,0.82), rgba(45,33,28,0) 50%)',
+              backdropFilter: 'blur(1px)',
             }}
           />
         </div>
