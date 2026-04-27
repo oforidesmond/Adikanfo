@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 
@@ -49,37 +50,68 @@ export function Contact() {
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['Dr. Tagoe Lane GA -375-9289 East Legon', 'Greater Accra'],
+      details: ['21 Dr. Tagoe Avenue, East Legon', 'Accra, Ghana'],
       color: 'from-brand to-brand-deep',
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+233 (0) 307 010 132', '+233 (0) 302 556 680'],
+      details: ['+233 (0) 30 701 0132'],
       color: 'from-brand-deep to-cocoa-800',
     },
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@adikanfoghana.com', 'sales@adikanfoghana.com'],
+      details: ['info@adikanfoghana.com'],
       color: 'from-cocoa-800 to-cocoa-950',
     },
     {
       icon: Clock,
       title: 'Business Hours',
-      details: ['Mon - Fri: 8:00 AM - 5:00 PM', 'Sat: 9:00 AM - 2:00 PM'],
+      details: ['Mon - Fri: 8:00 AM - 5:00 PM'],
       color: 'from-brand to-cocoa-900',
     },
   ];
 
-  const collectionCenters = [
-    { region: 'Ashanti Region', location: 'Kumasi Collection Center' },
-    { region: 'Western Region', location: 'Sefwi Wiawso Center' },
-    { region: 'Eastern Region', location: 'Koforidua Center' },
-    { region: 'Central Region', location: 'Cape Coast Center' },
-    { region: 'Brong-Ahafo', location: 'Sunyani Center' },
-    { region: 'Volta Region', location: 'Ho Collection Center' },
+  const operationalRegions = [
+    {
+      region: 'Ashanti',
+      districts: [
+        'Konongo',
+        'Juaso A',
+        'Juaso B',
+        'Juaso F/C',
+        'Juaso D',
+        'Juaso E',
+        'Agona Juaben',
+        'Tepa',
+        'Asante Bekwai',
+        'New Edubiase',
+      ],
+    },
+    {
+      region: 'Brong-Ahafo',
+      districts: ['Goaso', 'Hwidiem', 'Sunyani A', 'Sunyani B (D.A)', 'Kasapin'],
+    },
+    {
+      region: 'Central',
+      districts: ['Atieku', 'Assin Breku', 'Assin Fosu', 'Twifo Praso A', 'Twifo Praso B'],
+    },
+    {
+      region: 'Eastern',
+      districts: ['Achiase', 'Akoase', 'Asamankese', 'Kade A', 'Kade B', 'Kade C', 'Oda/Akroso', 'Ofoase A', 'Ofoase C', 'Suhum'],
+    },
+    {
+      region: 'Western North',
+      districts: ['Fosukrom A', 'Fosukrom B'],
+    },
+    {
+      region: 'Western South',
+      districts: ['Diaso', 'Bogoso', 'Enchi', 'Wassa Akropong'],
+    },
   ];
+
+  const totalOperationalDistricts = operationalRegions.reduce((sum, r) => sum + r.districts.length, 0);
 
   const faqs = [
     {
@@ -106,15 +138,16 @@ export function Contact() {
       <section className="relative min-h-[420px] md:min-h-[480px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1740741703636-1680d0c0f0a0?auto=format&fit=crop&w=2000&q=80"
+            src="/contacts.jpg"
             alt="Cocoa farmers and communities we partner with across Ghana"
-            className="w-full h-full object-cover"
+            className="w-full h-[700px] object-cover"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(100deg, rgba(26,17,13,0.9) 0%, rgba(45,33,28,0.72) 42%, rgba(93,168,198,0.28) 100%), linear-gradient(to top, rgba(26,17,13,0.75) 0%, transparent 50%)',
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(45,33,28,0.82), rgba(45,33,28,0) 50%)',
+              backdropFilter: 'blur(1px)',
             }}
           />
         </div>
@@ -313,6 +346,16 @@ export function Contact() {
                   </motion.div>
                 </form>
               </div>
+                {/* Map Placeholder */}
+              <motion.div
+                className="bg-cream-dark rounded-2xl mt-8 h-64 flex items-center justify-center border border-cocoa-200 overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="text-center text-cocoa-600">
+                  <MapPin size={48} className="mx-auto mb-2" />
+                  <p>Head Office - Accra, Ghana</p>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Additional Information */}
@@ -328,25 +371,49 @@ export function Contact() {
                 className="bg-gradient-to-br from-cocoa-900 to-cocoa-950 rounded-2xl p-8 text-cream shadow-card-hover ring-1 ring-brand/25"
                 whileHover={{ scale: 1.02 }}
               >
-                <h3 className="text-2xl mb-6">Collection Centers</h3>
+                <h3 className="text-2xl mb-6">Operational Regions</h3>
                 <p className="text-cream/80 mb-6">
-                  We have multiple collection centers across Ghana for your convenience:
+                  We have multiple operational regions across Ghana for your convenience:
                 </p>
-                <div className="grid grid-cols-2 gap-4">
-                  {collectionCenters.map((center, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.05 }}
-                      whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
-                    >
-                      <p className="text-sm text-brand mb-1">{center.region}</p>
-                      <p className="text-sm">{center.location}</p>
-                    </motion.div>
-                  ))}
+                <div className="rounded-2xl bg-white/8 backdrop-blur-sm ring-1 ring-white/15 overflow-hidden">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/12 px-5 py-4">
+                    <p className="text-sm text-cream/85">
+                      <span className="font-medium text-white">{operationalRegions.length}</span> regions
+                      <span className="mx-2 text-white/25">·</span>
+                      <span className="font-medium text-white">{totalOperationalDistricts}</span> districts
+                    </p>
+                    <p className="text-xs text-cream/70">Tap a region to view districts</p>
+                  </div>
+
+                  <Accordion type="single" collapsible className="divide-y divide-white/10">
+                    {operationalRegions.map((region) => (
+                      <AccordionItem key={region.region} value={region.region} className="border-b-0">
+                        <AccordionTrigger className="px-5 py-4 hover:no-underline">
+                          <div className="flex w-full items-center justify-between gap-4">
+                            <div className="flex flex-col items-start">
+                              <p className="text-sm font-medium text-white">{region.region}</p>
+                              <p className="text-xs text-cream/70">Operational districts</p>
+                            </div>
+                            <span className="inline-flex items-center rounded-full bg-white/10 px-2.5 py-1 text-xs font-medium tabular-nums text-cream ring-1 ring-white/15">
+                              {region.districts.length}
+                            </span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-5">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {region.districts.map((district) => (
+                              <div
+                                key={district}
+                                className="flex items-center justify-between rounded-xl border border-white/10 bg-white/6 px-3 py-2"
+                              >
+                                <p className="text-sm text-cream">{district}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 </div>
               </motion.div>
 
@@ -363,20 +430,9 @@ export function Contact() {
                   className="bg-gradient-to-r from-cream-dark to-cocoa-100 p-6 rounded-xl text-center border border-cocoa-200"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <p className="text-3xl text-brand mb-2 font-medium">+233 (0) 307 010 132</p>
-                  <p className="text-sm text-cocoa-700">Available Monday - Saturday</p>
+                  <p className="text-3xl text-brand mb-2 font-medium">+233 (0) 30 701 0132</p>
+                  <p className="text-sm text-cocoa-700">Available Monday - Friday</p>
                 </motion.div>
-              </motion.div>
-
-              {/* Map Placeholder */}
-              <motion.div
-                className="bg-cream-dark rounded-2xl h-64 flex items-center justify-center border border-cocoa-200 overflow-hidden"
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="text-center text-cocoa-600">
-                  <MapPin size={48} className="mx-auto mb-2" />
-                  <p>Head Office - Accra, Ghana</p>
-                </div>
               </motion.div>
             </motion.div>
           </div>

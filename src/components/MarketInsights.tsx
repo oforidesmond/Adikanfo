@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 import {
   Bar,
   BarChart,
@@ -182,8 +183,24 @@ export function MarketInsights() {
 
   return (
     <div className="bg-gradient-to-b from-cream to-cream-dark">
-      <section className="border-b border-cocoa-200/60 bg-gradient-to-br from-cocoa-900 via-cocoa-900 to-cocoa-950 text-cream">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <section className="relative border-b border-cocoa-200/60 text-cream overflow-hidden">
+        <div className="absolute inset-0">
+          <ImageWithFallback
+            src="/resources.jpg"
+            alt="Resources"
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to right, rgba(45,33,28,0.82), rgba(45,33,28,0.35) 45%, transparent 65%),linear-gradient(to left, rgba(45,33,28,0.82), rgba(45,33,28,0) 50%)',
+              backdropFilter: 'blur(1px)',
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}

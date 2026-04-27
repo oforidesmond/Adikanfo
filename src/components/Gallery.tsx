@@ -9,6 +9,7 @@ type SustainabilityFilterId =
   | 'farmerGroups'
   | 'trainings'
   | 'traceability'
+  | 'grading'
   | 'mappingAudit'
   | 'womenSupport'
   | 'childProtection';
@@ -29,6 +30,7 @@ type SustainabilityFilterConfig = {
     | 'farmers'
     | 'trainings'
     | 'traceability'
+    | 'grading'
     | 'audit'
     | 'support'
     | 'protection';
@@ -41,6 +43,7 @@ type GalleryFolder =
   | 'farmers'
   | 'trainings'
   | 'traceability'
+  | 'grading'
   | 'audit'
   | 'support'
   | 'protection';
@@ -84,6 +87,12 @@ const sustainabilityFilterConfigs: SustainabilityFilterConfig[] = [
     label: 'Traceability',
     folder: 'traceability',
     description: 'Field checks and digital processes that keep every cocoa bean fully traceable.',
+  },
+  {
+    id: 'grading',
+    label: 'Compliance',
+    folder: 'grading',
+    description: 'Quality checks, grading, sealing, and warehouse handling across our districts.',
   },
   {
     id: 'mappingAudit',
@@ -135,6 +144,10 @@ const traceabilityModuleMap = import.meta.glob(
   '/public/traceability/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
   { eager: true, as: 'url' }
 ) as Record<string, string>;
+const gradingModuleMap = import.meta.glob(
+  '/public/grading/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
+  { eager: true, as: 'url' }
+) as Record<string, string>;
 const auditModuleMap = import.meta.glob(
   '/public/audit/*.{jpg,jpeg,png,JPG,JPEG,PNG,webp,WEBP}',
   { eager: true, as: 'url' }
@@ -154,6 +167,7 @@ const folderImageMaps: Record<GalleryFolder, Record<string, string>> = {
   farmers: farmersModuleMap,
   trainings: trainingsModuleMap,
   traceability: traceabilityModuleMap,
+  grading: gradingModuleMap,
   audit: auditModuleMap,
   support: supportModuleMap,
   protection: protectionModuleMap,

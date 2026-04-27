@@ -100,7 +100,7 @@ export function Services() {
     {
       number: '02',
       title: 'Delivery',
-      description: 'Bring your cocoa to our collection centers or arrange for convenient pickup service',
+      description: 'Bring your cocoa to our operational districts or arrange for convenient pickup service',
     },
     {
       number: '03',
