@@ -52,17 +52,17 @@ function buildMonthlyPrices(): MonthlyPrice[] {
 
 // export const monthlyCocoaPrices = buildMonthlyPrices();
 export const monthlyCocoaPrices: MonthlyPrice[] = [
-  { month: 'May 2025', shortLabel: 'May', price: 2763 },
-  { month: 'Jun 2025', shortLabel: 'Jun', price: 2842 },
-  { month: 'Jul 2025', shortLabel: 'Jul', price: 2789 },
-  { month: 'Aug 2025', shortLabel: 'Aug', price: 2915 },
-  { month: 'Sep 2025', shortLabel: 'Sep', price: 2856 },
-  { month: 'Oct 2025', shortLabel: 'Oct', price: 2987 },
-  { month: 'Nov 2025', shortLabel: 'Nov', price: 2923 },
-  { month: 'Dec 2025', shortLabel: 'Dec', price: 3054 },
-  { month: 'Jan 2026', shortLabel: 'Jan', price: 2991 },
-  { month: 'Feb 2026', shortLabel: 'Feb', price: 3112 },
-  { month: 'Mar 2026', shortLabel: 'Mar', price: 3048 },
+  { month: 'May 2025', shortLabel: 'May', price: 3100 },
+  { month: 'Jun 2025', shortLabel: 'Jun', price: 3100 },
+  { month: 'Jul 2025', shortLabel: 'Jul', price: 3100 },
+  { month: 'Aug 2025', shortLabel: 'Aug', price: 3228 },
+  { month: 'Sep 2025', shortLabel: 'Sep', price: 3228 },
+  { month: 'Oct 2025', shortLabel: 'Oct', price: 3625 },
+  { month: 'Nov 2025', shortLabel: 'Nov', price: 3625 },
+  { month: 'Dec 2025', shortLabel: 'Dec', price: 3625 },
+  { month: 'Jan 2026', shortLabel: 'Jan', price: 3625 },
+  { month: 'Feb 2026', shortLabel: 'Feb', price: 2587 },
+  { month: 'Mar 2026', shortLabel: 'Mar', price: 2587 },
   { month: 'Apr 2026', shortLabel: 'Apr', price: 2587 },
 ];
 
@@ -95,8 +95,8 @@ const priceChangePct = ((lastPrice - prevPrice) / prevPrice) * 100;
 // const productionRng = createRng(SEED + 2);
 // export const ghanaProductionMt = Math.round((682_000 + productionRng() * 24_000) / 1000) * 1000;
 // export const exportVolumeMt = Math.round((ghanaProductionMt * (0.78 + productionRng() * 0.06)) / 1000) * 1000;
-export const ghanaProductionMt = 650000;
-export const exportVolumeMt = 548000;
+export const ghanaProductionMt = 600000;
+export const exportVolumeMt = 520000;
 
 export const marketKpis = {
   globalCocoaUsdPerMt: lastPrice,

@@ -62,12 +62,12 @@ export function Home() {
       icon: Shield,
       title: 'License',
       description:
-        'Officially Registered under the Ghana’s Company’s Act 1961, Licensed by Ghana Cocoa Board’s law  with full regulatory compliance, a Member of the Licensed Cocoa Buyers Association of Ghana (LICOBAG) and a member of the World Cocoa Foundation (WCF).',
+        'Officially Registered under the Ghana’s Company’s Act 1961, Licensed by Ghana Cocoa Board law  with full regulatory compliance, a Member of the Licensed Cocoa Buyers Association of Ghana (LICOBAG) and a member of the World Cocoa Foundation (WCF).',
     },
     {
       icon: Users,
       title: 'Stakeholder Partnerships',
-      description: '29,000+ farmers network in over 4500 communities across 36 operational districts in Ghana. Partnerships with, local processors, Agri-Input dealers, transporters, international and local financial service providers among others along the cocoa value chain.',
+      description: '29,000+ farmer network in over 4500 communities across 36 operational districts in Ghana. Partnerships with, local processors, Agri-Input dealers, transporters, international and local financial service providers among others along the cocoa value chain.',
     },
     {
       icon: TrendingUp,
@@ -79,7 +79,7 @@ export function Home() {
       icon: Leaf,
       title: 'Sustainable Sourcing',
       description:
-        'Committed to Best sustainable practices to ensure sustainable growth of the cocoa industry focusing on environmental protection and conservation, economic empowerment of farmers and farming communities and championing gender and social inclusion as well as child protection and Fair labor practices.',
+        'Committed to sustainable practices that drive growth in Ghana’s cocoa sector, promoting environmental stewardship, empowering farmers and communities, and advancing gender inclusion, child protection, and Fair Labor.',
     },
     {
       icon: CheckCircle,
@@ -142,7 +142,7 @@ export function Home() {
     },
     {
       icon: Clock,
-      title: 'Fast Processing',
+      title: 'Efficient Processing',
       description: 'Quick turnaround times',
     },
     {

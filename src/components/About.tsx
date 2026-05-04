@@ -94,14 +94,24 @@ export function About() {
       description: 'Expanded across key cocoa-growing regions, strengthening farmer relationships and operational reach.',
     },
     {
+      year: '2021',
+      title: 'Market Position',
+      description: 'Reached a peak of 21,214 metric tonnes.',
+    },
+    {
       year: '2022',
       title: 'Operational Excellence',
       description: 'Achieved steady growth through efficiency, strong governance, and consistent quality delivery.',
     },
     {
-      year: '2024/2025',
+      year: '2023',
+      title: 'Expansion',
+      description: 'Expanded with department for sustainability and sustainable sourcing. Started with 500 MT of RA Certified Beans',
+    },
+    {
+      year: '2025',
       title: 'Market Position',
-      description: 'Reached a peak of 21,214 tonnes and secured a 3.17% market share.',
+      description: 'Achieved a 3.28% market share for internal cocoa market.',
     },
     {
       year: 'Today',
@@ -132,16 +142,6 @@ export function About() {
       },
     },
     {
-      name: 'Charles Adu Boahen',
-      role: 'Information Systems Manager',
-      image: '/number3.jpg',
-      socials: {
-        facebook: 'https://facebook.com',
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com',
-      },
-    },
-    {
       name: 'Frederick Mensah',
       role: 'Finance Manager',
       image: '/number4.jpg',
@@ -152,9 +152,9 @@ export function About() {
       },
     },
     {
-      name: 'Vida Ayorkor Laryea',
-      role: 'Human Resource Manager',
-      image: '/number5.jpg',
+      name: 'Charles Adu Boahen',
+      role: 'Information Systems Manager',
+      image: '/number3.jpg',
       socials: {
         facebook: 'https://facebook.com',
         linkedin: 'https://linkedin.com',
@@ -172,9 +172,9 @@ export function About() {
       },
     },
     {
-      name: 'Aboagyewaa Caezar-Wood',
-      role: 'Marketing & Communications Manager',
-      image: '/number7.jpg',
+      name: 'Vida Ayorkor Laryea',
+      role: 'Human Resource Manager',
+      image: '/number5.jpg',
       socials: {
         facebook: 'https://facebook.com',
         linkedin: 'https://linkedin.com',
@@ -185,6 +185,46 @@ export function About() {
       name: 'Bampo Koranteng',
       role: 'Risk & Regulatory Compliance Manager',
       image: '/number8.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Daniel Osei Nkrumah',
+      role: 'Sustainability Manager',
+      image: '/number10.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Aboagyewaa Caezar-Wood',
+      role: 'Marketing & Communications Manager',
+      image: '/number7.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Charles Sintim',
+      role: 'Port Manager, Tema',
+      image: '/number11.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Henry Cornelius Bawa',
+      role: 'Port Manager, Takoradi',
+      image: '/number12.jpg',
       socials: {
         facebook: 'https://facebook.com',
         linkedin: 'https://linkedin.com',
@@ -459,7 +499,7 @@ export function About() {
           >
             <h2 className="text-4xl md:text-5xl mb-4 text-cocoa-900">Our Team</h2>
             <p className="text-cocoa-700 max-w-2xl mx-auto text-lg">
-              Adikanfo Commodities Limited has resourceful and dynamic management team which is committed to the realization of the vision and mission of the company. They have rich experiences in the cocoa industry
+              Our resourceful and dynamic management team, with rich experience in the cocoa industry, is committed to the realization of our mission and vision.
             </p>
           </motion.div>
 
@@ -507,12 +547,12 @@ export function About() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: 'Incorporated Enterprise', desc: 'Officially registered under the Ghana Companies Act, 1961 (Act 179).' },
-              { title: 'COCOBOD Licensed', desc: 'Fully compliant with Ghana Cocoa Board regulations and operational standards.' },
-              { title: 'LICOBAG Member', desc: 'Proud member of the Licensed Cocoa Buyers Association of Ghana.' },
-              { title: 'WCF Affiliate', desc: 'Active member of the World Cocoa Foundation, committed to global cocoa sustainability.' },
-              { title: 'Quality Certified', desc: 'International Quality Standards' },
-              { title: 'Fair Trade', desc: 'Committed to Fair Trade Practices' },
+              { title: 'Incorporated Enterprise', desc: 'Officially registered under the Ghana Companies Act, 1961 (Act 179).', image: '/coat_arms.png' },
+              { title: 'COCOBOD Licensed', desc: 'Fully compliant with Ghana Cocoa Board regulations and operational standards.', image: '/coco.png' },
+              { title: 'LICOBAG Member', desc: 'Proud member of the Licensed Cocoa Buyers Association of Ghana.', image: '/partner6.png' },
+              { title: 'WCF Affiliate', desc: 'Active member of the World Cocoa Foundation, committed to global cocoa sustainability.', image: '/world_cocoa.jpg' },
+              { title: 'Rain Forest Alliance', desc: 'Committed to sustainable and responsible cocoa production.', image: '/partner4.png' },
+              { title: 'Fair Trade', desc: 'Committed to Fair Trade Practices', image: '/partner5.svg' },
             ].map((cert, index) => (
               <motion.div
                 key={index}
@@ -524,11 +564,15 @@ export function About() {
                 whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
               >
                 <motion.div
-                  className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                  className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Award className="text-white" size={36} />
+                  <ImageWithFallback
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-16 h-16 object-contain"
+                  />
                 </motion.div>
                 <h3 className="mb-2">{cert.title}</h3>
                 <p className="text-cream/75 text-sm">{cert.desc}</p>

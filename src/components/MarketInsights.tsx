@@ -11,7 +11,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { Globe2, Newspaper, Package, Percent, Sprout, TrendingUp, Users } from 'lucide-react';
+import { Download, FileDown, FileText, Globe2, Newspaper, Package, Percent, Sprout, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from './ui/button';
 import {
@@ -87,12 +87,6 @@ const cardMotion = {
   transition: { duration: 0.45 },
 } as const;
 
-const PRODUCER_PRICE_2025_2026_GHS_PER_BAG = 2587;
-
-const producerPriceTrend = monthlyCocoaPrices.map((p) => ({
-  ...p,
-  price: PRODUCER_PRICE_2025_2026_GHS_PER_BAG,
-}));
 
 function MetricCard({
   icon: Icon,
@@ -229,7 +223,7 @@ export function MarketInsights() {
               icon={Sprout}
               label="Ghana production"
               value={`${formatMt(ghanaProductionMt)} MT`}
-              sub="National crop estimate (demo)"
+              sub="National crop estimate"
             />
             {/* <MetricCard
               icon={Package}
@@ -262,7 +256,7 @@ export function MarketInsights() {
               </div>
               <div>
                 <h2 className="text-xl md:text-2xl font-medium text-cocoa-900">Producer price trend</h2>
-                <p className="mt-1 text-sm text-cocoa-600">2025/2026 crop year — GH₵2,587 per 64kg bag</p>
+                <p className="mt-1 text-sm text-cocoa-600">Last twelve months — GH₵ per 64kg bag</p>
               </div>
             </div>
             <div
@@ -271,7 +265,7 @@ export function MarketInsights() {
               aria-label="Line chart of Ghana cocoa producer price for the 2025/2026 crop year"
             >
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={producerPriceTrend} margin={{ top: 8, right: 12, left: 4, bottom: 8 }}>
+                <LineChart data={monthlyCocoaPrices} margin={{ top: 8, right: 12, left: 4, bottom: 8 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgb(196 181 168 / 0.5)" />
                   <XAxis dataKey="shortLabel" tick={{ fill: '#5c4a3f', fontSize: 12 }} axisLine={false} tickLine={false} />
                   <YAxis
@@ -313,7 +307,7 @@ export function MarketInsights() {
                     Farmer network snapshot
                   </h2>
                   <p className="mt-1 text-sm text-cocoa-600">
-                    Statistics by region — societies, farmer counts, mapped farms & mapped hectares
+                    Statistics by region, societies, farmer counts, mapped farms & mapped hectares
                   </p>
                 </div>
               </div>
@@ -397,7 +391,7 @@ export function MarketInsights() {
             </div>
 
             <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-cocoa-600">
-              <p>Demo dataset for design preview.</p>
+              {/* <p>Demo dataset for design preview.</p> */}
               <p className="tabular-nums">Last updated: Apr 2026</p>
             </div>
           </motion.div>
@@ -447,6 +441,58 @@ export function MarketInsights() {
           </motion.div>*/}
         </div>
       </section> 
+
+      {/* Downloads Section */}
+      <section className="border-t border-cocoa-200/80 bg-cream">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <motion.div
+            className="mb-10 flex items-start gap-3"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand to-brand-deep text-white shadow-card">
+              <FileDown className="h-5 w-5" aria-hidden />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-medium text-cocoa-900">Our Policies</h2>
+              <p className="mt-1 max-w-2xl text-cocoa-600">Download our policy documents.</p>
+            </div>
+          </motion.div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: 'Adikanfo Policy on Child Labour', desc: 'Our policy document for the period.', file: '/downloads/adikanfo-policy-document-jan-apr-2025.pdf' },
+              { title: 'Annual Sustainability Report 2024', desc: 'Comprehensive ESG and sustainability performance.', file: '/downloads/sustainability-report-2024.pdf' },
+              { title: 'Farmer Training Handbook', desc: 'Best practices for cocoa cultivation and post-harvest.', file: '/downloads/farmer-handbook.pdf' },
+              { title: 'Quality Standards Guide', desc: 'Grading criteria and quality assurance protocols.', file: '/downloads/quality-standards.pdf' },
+            ].map((doc, index) => (
+              <motion.div
+                key={index}
+                className="group rounded-2xl border border-cocoa-200 bg-card p-6 shadow-card transition-all duration-300 hover:shadow-card-hover hover:border-brand/30"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cocoa-100 text-brand mb-4 group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+                  <FileText className="h-6 w-6" aria-hidden />
+                </div>
+                <h3 className="text-lg font-medium text-cocoa-900 mb-2">{doc.title}</h3>
+                <p className="text-sm text-cocoa-600 mb-5 leading-relaxed">{doc.desc}</p>
+                <a
+                  href={doc.file}
+                  download
+                  className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-deep transition-colors duration-200"
+                >
+                  <Download className="h-4 w-4" aria-hidden />
+                  Download
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="border-t border-cocoa-200/80 bg-cream pb-20">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

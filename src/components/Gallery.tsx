@@ -59,7 +59,7 @@ const mainFilterConfigs: MainFilterConfig[] = [
     id: 'sustainability',
     label: 'Sustainability',
     description:
-      'Explore each pillar of Adikanfo’s sustainability commitments—from farmer support to rigorous audits.',
+      'Explore each pillar of Adikanfo’s sustainability commitments from farmer support to rigorous audits.',
   },
   {
     id: 'community',
@@ -229,7 +229,7 @@ export function Gallery() {
         <div className="absolute inset-0">
           <ImageWithFallback
             src="/gallery-cocoa.jpeg"
-            alt="Premium cocoa beans — from harvest to traceable supply"
+            alt="Premium cocoa beans from harvest to traceable supply"
             className="w-full h-full object-cover scale-105"
           />
           <div
@@ -267,7 +267,7 @@ export function Gallery() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.16 }}
             >
-              Walk through seminars, sustainability field work, and community development — the people and practices behind every bean we source, trace, and bring to market with integrity.
+              Walk through seminars, sustainability field work, and community development, the people and practices behind every bean we source, trace, and bring to market with integrity.
             </motion.p>
           </div>
         </div>

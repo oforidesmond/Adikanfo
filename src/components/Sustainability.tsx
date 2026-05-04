@@ -87,7 +87,7 @@ const numberedSections: {
     n: 5,
     title: 'Human rights protection',
     body:
-      'Respecting human dignity is non-negotiable. Our programmes and governance embed prevention, monitoring, and remediation so that rights risks are managed proactively—not only when issues surface.',
+      'Respect for human dignity is non-negotiable. Our programmes and governance embed robust prevention, monitoring, and remediation mechanisms to proactively identify, manage, and address human rights risks.',
     image: '/protection/STEP2686.JPG',
     imageAlt: 'Field protection and safeguarding',
     icon: HeartHandshake,
@@ -192,10 +192,7 @@ export function Sustainability() {
               Our commitment
             </div>
             <p className="text-lg leading-relaxed text-cocoa-800 md:text-xl">
-              Adikanfo Commodities Ltd embarked on its sustainability journey with a clear understanding that responsible and forward-looking
-              business practices are fundamental to the company’s long-term survival, competitiveness, and growth. By operating sustainably, we
-              foster pride and accountability among our workforce, safeguard the wellbeing of our farming communities, strengthen our ability to
-              attract credible partners and investors, and build a resilient enterprise capable of leading the cocoa industry for decades to come.
+              We recognize that a sustainable cocoa sector depends on protecting the environment, upholding human rights, promoting responsible business practices, and building resilient farming communities. By operating sustainably, we foster pride and accountability among our workforce, safeguard the wellbeing of our farming communities, strengthen our ability to attract credible partners and investors, and build a resilient enterprise capable of leading the cocoa industry for decades to come.
             </p>
           </motion.div>
         </div>
@@ -251,7 +248,7 @@ export function Sustainability() {
               <h2 className="mb-5 text-3xl text-cocoa-900 md:text-4xl">Farmer viability</h2>
               <p className="mb-8 text-lg leading-relaxed text-cocoa-700">
                 This approach also strengthens our efforts to mitigate social risks, including child labour, and promotes sustainable rural
-                livelihoods through the pillars below.
+                livelihoods through:
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <SectionImage
@@ -328,14 +325,14 @@ export function Sustainability() {
             <p className="mb-2 text-sm font-medium uppercase tracking-widest text-brand/90">Accra</p>
             <h2 className="mb-4 text-3xl text-white md:text-4xl">Portraits from our journey</h2>
             <p className="max-w-xl text-cream/80">
-              People and presence in Ghana’s capital—reflecting the professionalism, care, and ambition that underpin our sustainability work
+              People and presence in Ghana’s capital; reflecting the professionalism, care, and ambition that underpin our sustainability work
               nationwide.
             </p>
           </motion.div>
           <motion.div className="max-w-lg justify-self-end" {...fadeUp} transition={{ duration: 0.65, delay: 0.1 }}>
             <SectionImage
               src="/portraits.jpg"
-              alt="Accra portraits — team and stakeholders"
+              alt="Accra portraits: team and stakeholders"
               imgClassName="h-[22rem] w-full md:h-[26rem]"
             />
           </motion.div>

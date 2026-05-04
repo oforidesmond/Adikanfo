@@ -68,7 +68,7 @@ export function Contact() {
     {
       icon: Clock,
       title: 'Business Hours',
-      details: ['Mon - Fri: 8:00 AM - 5:00 PM'],
+      details: ['Mon - Fri: 9:00 AM - 5:00 PM'],
       color: 'from-brand to-cocoa-900',
     },
   ];
@@ -176,7 +176,7 @@ export function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.16 }}
             >
-              Questions about selling cocoa, partnerships, or our programs — reach out. Fair pricing and transparent relationships start with a conversation.
+              Questions about selling cocoa, partnerships, or our programs, reach out. Fair pricing and transparent relationships start with a conversation.
             </motion.p>
           </div>
         </div>
