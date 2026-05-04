@@ -94,7 +94,7 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info  */}
           <motion.div
             className="md:col-span-3"
             initial={{ opacity: 0, y: 20 }}
