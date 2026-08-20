@@ -601,8 +601,8 @@ export function About() {
               { title: 'COCOBOD Licensed', desc: 'Fully compliant with Ghana Cocoa Board regulations and operational standards.', image: '/coco.png' },
               { title: 'COCOAMAG Member', desc: 'Proud member of the Chamber of Cocoa Marketers Ghana.', image: '/partner6.png' },
               { title: 'WCF', desc: 'Active member of the World Cocoa Foundation, committed to global cocoa sustainability.', image: '/world_cocoa.jpg' },
-              { title: 'Rain Forest Alliance', desc: 'Committed to sustainable and responsible cocoa production.', image: '/partner4.png' },
-              { title: 'Fair Trade', desc: 'Committed to Fair Trade Practices', image: '/partner5.svg' },
+              { title: 'Rain Forest Alliance', desc: 'Committed to sustainable and responsible cocoa production under the RA certification.', image: '/partner4.png' },
+              { title: 'Fair Trade', desc: 'We work with farmer cooperatives who are fairtrade certified', image: '/partner5.svg' },
             ].map((cert, index) => (
               <motion.div
                 key={index}
