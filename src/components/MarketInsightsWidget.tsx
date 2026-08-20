@@ -70,7 +70,7 @@ export function MarketInsightsWidget({ compact = false }: { compact?: boolean })
                 {formatUsdMt(globalCocoaUsdPerMt)}
               </p>
               <p className={compact ? 'text-xs text-white/65 mt-1' : 'text-sm text-white/65 mt-1'}>
-                per bag of cocoa (As at May 2026)
+                per bag of cocoa (As at August 2026)
               </p>
             </div>
             <div
@@ -143,14 +143,35 @@ export function MarketInsightsWidget({ compact = false }: { compact?: boolean })
                 {formatMt(ghanaProductionMt)} MT
               </dd>
             </div>
-            <div className={compact ? 'rounded-lg bg-white/8 px-3 py-2' : 'rounded-lg bg-white/8 px-3 py-2'}>
+            <div
+              className={
+                compact
+                  ? 'rounded-lg bg-white/8 px-3 py-2 row-span-2 flex flex-col justify-center'
+                  : 'rounded-lg bg-white/8 px-3 py-2 row-span-2 flex flex-col justify-center'
+              }
+            >
+              <dt className="text-white/60 text-xs">
+                <span>Adikanfo Annual Purchases </span>
+                <span className="block text-[10px] text-white/45 mt-0.5">2025/2026</span>
+              </dt>
+              <dd
+                className={
+                  compact
+                    ? 'mt-1 font-semibold tabular-nums text-white text-base sm:text-lg'
+                    : 'mt-1 font-semibold tabular-nums text-white text-base sm:text-lg'
+                }
+              >
+                {formatMt(ghanaProductionMt)} MT
+              </dd>
+            </div>
+            {/* <div className={compact ? 'rounded-lg bg-white/8 px-3 py-2' : 'rounded-lg bg-white/8 px-3 py-2'}>
               <dt className="text-white/60 text-xs">Bean Export Volume</dt>
               <dd className="font-medium tabular-nums text-white">{formatMt(exportVolumeMt)} MT</dd>
             </div>
             <div className={compact ? 'rounded-lg bg-white/8 px-3 py-2 col-start-2' : 'rounded-lg bg-white/8 px-3 py-2 col-start-2'}>
               <dt className="text-white/60 text-xs">Local Processing Volume</dt>
               <dd className="font-medium tabular-nums text-white">{formatMt(220000)} MT</dd>
-            </div>
+            </div> */}
           </dl>
 
           <Link

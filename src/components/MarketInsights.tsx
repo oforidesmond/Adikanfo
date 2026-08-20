@@ -201,7 +201,7 @@ export function MarketInsights() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <p className="mb-3 inline-flex rounded-full border border-brand/40 bg-brand-muted px-3 py-1 text-sm text-brand">
+            <p className="mb-3 inline-flex rounded-full border border-brand/40 bg-brand-muted px-3 py-1 text-sm text-white">
               Intelligence desk
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-4 tracking-tight">

@@ -116,7 +116,7 @@ export function About() {
     {
       year: 'Today',
       title: 'Sustainability & Industry Commitment',
-      description: 'Promoting sustainable cocoa production through ESG practices as a member of LICOBAG and the World Cocoa Foundation.',
+      description: 'Championing sustainable cocoa production through robust ESG practices and strategic partnerships as an active member of COCOAMAG and the World Cocoa Foundation.',
     },
   ];
 
@@ -225,6 +225,56 @@ export function About() {
       name: 'Henry Cornelius Bawa',
       role: 'Port Manager, Takoradi',
       image: '/number12.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Kweku Afrane',
+      role: 'Sector Manager, Central Region',
+      image: '/number13.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Frank Ntow',
+      role: 'Sector Manager, Eastern Region',
+      image: '/number14.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Ebenezer Boamah',
+      role: 'Sector Manager, Ashanti Region',
+      image: '/number15.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Peter Dzah',
+      role: 'Sector Manager, Western South Region',
+      image: '/number16.jpg',
+      socials: {
+        facebook: 'https://facebook.com',
+        linkedin: 'https://linkedin.com',
+        twitter: 'https://twitter.com',
+      },
+    },
+    {
+      name: 'Daniel Nartey ',
+      role: 'Sector Manager, Brong Ahafo Region',
+      image: '/number17.jpg',
       socials: {
         facebook: 'https://facebook.com',
         linkedin: 'https://linkedin.com',
@@ -549,8 +599,8 @@ export function About() {
             {[
               { title: 'Incorporated Enterprise', desc: 'Officially registered under the Ghana Companies Act, 1961 (Act 179).', image: '/coat_arms.png' },
               { title: 'COCOBOD Licensed', desc: 'Fully compliant with Ghana Cocoa Board regulations and operational standards.', image: '/coco.png' },
-              { title: 'LICOBAG Member', desc: 'Proud member of the Licensed Cocoa Buyers Association of Ghana.', image: '/partner6.png' },
-              { title: 'WCF Affiliate', desc: 'Active member of the World Cocoa Foundation, committed to global cocoa sustainability.', image: '/world_cocoa.jpg' },
+              { title: 'COCOAMAG Member', desc: 'Proud member of the Chamber of Cocoa Marketers Ghana.', image: '/partner6.png' },
+              { title: 'WCF', desc: 'Active member of the World Cocoa Foundation, committed to global cocoa sustainability.', image: '/world_cocoa.jpg' },
               { title: 'Rain Forest Alliance', desc: 'Committed to sustainable and responsible cocoa production.', image: '/partner4.png' },
               { title: 'Fair Trade', desc: 'Committed to Fair Trade Practices', image: '/partner5.svg' },
             ].map((cert, index) => (

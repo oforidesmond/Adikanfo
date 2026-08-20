@@ -18,7 +18,7 @@ import { MarketInsightsWidget } from './MarketInsightsWidget';
 export function Home() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [activeHeroSlide, setActiveHeroSlide] = useState(0);
-  const heroImages = Array.from({ length: 6 }, (_, index) => ({
+  const heroImages = Array.from({ length: 8 }, (_, index) => ({
     src: `/carousel-${index + 1}.jpg`,
     alt: `Adikanfo Commodities hero slide ${index + 1}`,
   }));
@@ -30,6 +30,8 @@ export function Home() {
     'Dedicated hands cultivating quality from the ground up.',
     'Preserving quality through tradition to meet global standards.',
     'Investing in tomorrow’s harvest for stronger, more resilient cocoa farms.',
+    'Best Performing District : AGONA (ASHANTI REGION).',
+    'Strong stakeholder partnerships across the cocoa value chain.',
   ];
 
   useEffect(() => {
@@ -87,6 +89,7 @@ export function Home() {
       description:
         'Adherence to Ghana’s premium quality control and traceability standards.\nRainforest Alliance and fairtrade certified.\nCompliance to local and international standards.',
     },
+    
   ];
 
   const testimonials = [
