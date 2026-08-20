@@ -96,11 +96,13 @@ const priceChangePct = ((lastPrice - prevPrice) / prevPrice) * 100;
 // export const ghanaProductionMt = Math.round((682_000 + productionRng() * 24_000) / 1000) * 1000;
 // export const exportVolumeMt = Math.round((ghanaProductionMt * (0.78 + productionRng() * 0.06)) / 1000) * 1000;
 export const ghanaProductionMt = 600000;
+export const adikanfoAnnualPurchasesMt = 120000;
 export const exportVolumeMt = 520000;
 
 export const marketKpis = {
   globalCocoaUsdPerMt: lastPrice,
   ghanaProductionMt,
+  adikanfoAnnualPurchasesMt,
   exportVolumeMt,
   priceChangePct: Math.round(priceChangePct * 10) / 10,
   trendUp: lastPrice >= prevPrice,

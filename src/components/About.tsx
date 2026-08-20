@@ -116,7 +116,7 @@ export function About() {
     {
       year: 'Today',
       title: 'Sustainability & Industry Commitment',
-      description: 'Championing sustainable cocoa production through robust ESG practices and strategic partnerships as an active member of COCOAMAG and the World Cocoa Foundation.',
+      description: 'Championing sustainable cocoa production through robust ESG practices and strategic partnerships.',
     },
   ];
 

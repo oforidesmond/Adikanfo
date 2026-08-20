@@ -98,7 +98,7 @@ const numberedSections: {
     body:
       'Healthy cocoa landscapes depend on trees, soil, and biodiversity. We promote agroforestry principles that support shade, carbon benefits, and long-term productivity for farmers and the environment.',
     image: '/agroforestry.JPG',
-    imageAlt: 'Cocoa agroforestry and shade trees',
+    imageAlt: 'Cocoa agroforestry and shade trees.',
     icon: TreeDeciduous,
   },
   {
