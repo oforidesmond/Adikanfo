@@ -15,7 +15,7 @@ const sparkData = monthlyCocoaPrices.map((p) => ({ label: p.shortLabel, price: p
 
 export function MarketInsightsWidget({ compact = false }: { compact?: boolean }) {
   const sparkFillId = useId().replace(/:/g, '');
-  const { globalCocoaUsdPerMt, ghanaProductionMt, exportVolumeMt, priceChangePct, trendUp } = marketKpis;
+  const { globalCocoaUsdPerMt, ghanaProductionMt, adikanfoAnnualPurchasesMt, exportVolumeMt, priceChangePct, trendUp } = marketKpis;
   const TrendIcon = trendUp ? ArrowUpRight : ArrowDownRight;
 
   return (
@@ -161,7 +161,7 @@ export function MarketInsightsWidget({ compact = false }: { compact?: boolean })
                     : 'mt-1 font-semibold tabular-nums text-white text-base sm:text-lg'
                 }
               >
-                {formatMt(ghanaProductionMt)} MT
+                {formatMt(adikanfoAnnualPurchasesMt)} MT
               </dd>
             </div>
             {/* <div className={compact ? 'rounded-lg bg-white/8 px-3 py-2' : 'rounded-lg bg-white/8 px-3 py-2'}>
