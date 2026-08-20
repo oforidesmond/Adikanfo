@@ -172,7 +172,7 @@ function RegionTooltip({
 }
 
 export function MarketInsights() {
-  const { globalCocoaUsdPerMt, ghanaProductionMt, exportVolumeMt, priceChangePct, trendUp } = marketKpis;
+  const { globalCocoaUsdPerMt, ghanaProductionMt, adikanfoAnnualPurchasesMt, exportVolumeMt, priceChangePct, trendUp } = marketKpis;
   const changeLabel = `${trendUp ? '+' : ''}${priceChangePct}% vs prior month`;
 
   return (
