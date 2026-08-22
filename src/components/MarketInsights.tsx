@@ -212,7 +212,9 @@ export function MarketInsights() {
             </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+         {/* TODO: Add export volume metric card */}
+         
+          <div className="mt-12 grid gap-5 sm:grid-cols-3 xl:grid-cols-4">
             <MetricCard
               icon={Globe2}
               label="Farm gate price"
@@ -225,6 +227,13 @@ export function MarketInsights() {
               value={`${formatMt(ghanaProductionMt)} MT`}
               sub="National crop estimate"
             />
+            <MetricCard
+              icon={Package}
+              label="Adikanfo annual purchases"
+              value={`${formatMt(adikanfoAnnualPurchasesMt)} MT`}
+              sub="Annual purchases 2025/2026"
+            />
+      
             {/* <MetricCard
               icon={Package}
               label="Export volume"

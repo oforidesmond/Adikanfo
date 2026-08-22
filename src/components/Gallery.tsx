@@ -179,7 +179,12 @@ const convertFolderToImages = (
   categoryLabel: string
 ): GalleryImage[] =>
   Object.keys(folderImageMaps[folder] ?? {})
-    .sort()
+    .sort((a, b) => {
+      const numberA = Number(a.match(/seminar-(\d+)/i)?.[1] ?? 0);
+      const numberB = Number(b.match(/seminar-(\d+)/i)?.[1] ?? 0);
+    
+      return numberA - numberB;
+    })
     .map((key, index) => ({
       id: `${idPrefix}-${index}`,
       src: folderImageMaps[folder][key],
